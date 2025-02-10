@@ -12,7 +12,7 @@ import java.util.List;
 
 public class SupplierDAOImpl implements SupplierDAO {
     @Override
-    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
+    public List<Supplier> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * from inventory");
 
         ArrayList<Supplier> supplierDTOS = new ArrayList<>();

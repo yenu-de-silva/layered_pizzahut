@@ -14,7 +14,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 
     @Override
-    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
+    public List<Employee> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM employee");
 
         ArrayList<Employee> employeeDTOS = new ArrayList<>();

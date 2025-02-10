@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface OrderDAO extends CrudDAO<Order> {
 
-    List<Customer> getAll() throws SQLException, ClassNotFoundException;
+    List<Order> getAll() throws SQLException, ClassNotFoundException;
 
     boolean save(Customer customer) throws SQLException, ClassNotFoundException;
 }

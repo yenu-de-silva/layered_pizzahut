@@ -13,7 +13,7 @@ import java.util.List;
 public class ProductDAOImpl implements ProductDAO {
 
     @Override
-    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
+    public List<Product> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * from product");
 
         ArrayList<Product> productDTOS = new ArrayList<>();

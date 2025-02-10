@@ -12,7 +12,7 @@ import java.util.List;
 public class DepartmentDAOImpl implements DepartmentDAO {
 
     @Override
-    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
+    public List<Department> getAll() throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("SELECT * FROM department");
     }
 

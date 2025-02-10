@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PaymentDAOImpl implements PaymentDAO {
     @Override
-    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
+    public List<Payment> getAll() throws SQLException, ClassNotFoundException {
         return null;
     }
 

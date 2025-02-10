@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.pizzahubsystem.controller.ItemController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.ItemController">
    <children>
       <Label alignment="CENTER" layoutX="277.0" text="Item Management" textFill="#a42727">
          <font>

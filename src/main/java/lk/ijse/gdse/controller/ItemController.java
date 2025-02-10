@@ -107,70 +107,6 @@ public class ItemController {
     private static final Pattern PRICE_PATTERN = Pattern.compile("^[0-9]+(\\.[0-9]{1,2})?$");
 
     @FXML
-    public void saveItemOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
-        String itemId = itemIdField.getText().trim();
-        String name = nameField.getText().trim();
-        String quantity = quantityField.getText().trim();
-        String price = priceField.getText().trim();
-
-        if (validateItemDetails()) {
-            ItemDTO itemDTO = new ItemDTO(itemId, name, Integer.parseInt(quantity), Double.parseDouble(price));
-            boolean isSaved = itemBO.saveItem(itemDTO);
-
-            if (isSaved) {
-                refreshPage();
-                new Alert(Alert.AlertType.INFORMATION, "Item saved...!").show();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Fail to save item...!").show();
-            }
-        }
-    }
-
-    @FXML
-    public void updateItemOnAction(ActionEvent event) throws SQLException {
-        String itemId = itemIdField.getText().trim();
-        String name = nameField.getText().trim();
-        String quantity = quantityField.getText().trim();
-        String price = priceField.getText().trim();
-
-        if (validateItemDetails()) {
-            ItemDTO itemDTO = new ItemDTO(itemId, name, Integer.parseInt(quantity), Double.parseDouble(price));
-            boolean isUpdated = itemBO.updateItem(itemDTO);
-
-            if (isUpdated) {
-                refreshPage();
-                new Alert(Alert.AlertType.INFORMATION, "Item updated...!").show();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Fail to update item...!").show();
-            }
-        }
-    }
-
-    @FXML
-    public void deleteItemOnAction(ActionEvent event) throws SQLException {
-        String itemId = itemIdField.getText().trim();
-
-        if (itemId.isEmpty()) {
-            showAlert("Error", "Item ID cannot be empty", Alert.AlertType.ERROR);
-            return;
-        }
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
-        Optional<ButtonType> optionalButtonType = alert.showAndWait();
-
-        if (optionalButtonType.isPresent() && optionalButtonType.get() == ButtonType.YES) {
-            boolean isDeleted = itemBO.deleteItem(itemId);
-
-            if (isDeleted) {
-                refreshPage();
-                new Alert(Alert.AlertType.INFORMATION, "Item deleted...!").show();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Fail to delete item...!").show();
-            }
-        }
-    }
-
-    @FXML
     public void clearFieldsOnAction(ActionEvent event) {
         itemIdField.clear();
         nameField.clear();
@@ -199,7 +135,7 @@ public class ItemController {
         return isValid;
     }
 
-    private void refreshPage() throws SQLException {
+    private void refreshPage() throws SQLException, ClassNotFoundException {
         loadTableData();
         clearFieldsOnAction(null);
         btnReset.setDisable(false);
@@ -208,7 +144,7 @@ public class ItemController {
         btndelete.setDisable(true);
     }
 
-    private void loadTableData() throws SQLException {
+    private void loadTableData() throws SQLException, ClassNotFoundException {
         ObservableList<ItemTM> itemList = FXCollections.observableArrayList();
         List<ItemDTO> items = itemBO.getAllItems();
 
@@ -220,7 +156,7 @@ public class ItemController {
     }
 
     @FXML
-    public void initialize() throws SQLException {
+    public void initialize() throws SQLException, ClassNotFoundException {
         itemIdColumn.setCellValueFactory(new PropertyValueFactory<>("item_id"));
         itemNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         itemQuantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
@@ -372,14 +308,10 @@ public class ItemController {
     @FXML
 
     public void loadItemIdsOnAction(ActionEvent actionEvent) {
-        try {
-            ArrayList<String> itemIds = itemBO.getAllItemIds();
+        ArrayList<String> itemIds = itemBO.getAllItemIds();
 
-            if (itemIds.isEmpty()) {
-                showAlert("Warning", "No items available", Alert.AlertType.WARNING);
-            }
-        } catch (SQLException e) {
-            showAlert("Error", "Failed to load item IDs: " + e.getMessage(), Alert.AlertType.ERROR);
+        if (itemIds.isEmpty()) {
+            showAlert("Warning", "No items available", Alert.AlertType.WARNING);
         }
     }
 //    public boolean addItem(ItemDTO newItem) {

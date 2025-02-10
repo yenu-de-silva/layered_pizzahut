@@ -14,7 +14,7 @@ public class OrderDAOImpl implements OrderDAO {
 
 
     @Override
-    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
+    public List<Order> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * from order");
 
         ArrayList<Order> orderDTOS = new ArrayList<>();
