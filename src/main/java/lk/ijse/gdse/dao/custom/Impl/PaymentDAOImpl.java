@@ -1,14 +1,15 @@
 package lk.ijse.gdse.dao.custom.Impl;
 
 import lk.ijse.gdse.dao.custom.PaymentDAO;
+import lk.ijse.gdse.entity.Customer;
 import lk.ijse.gdse.entity.Payment;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class PaymentDAOImpl implements PaymentDAO {
     @Override
-    public ArrayList<Payment> getAll() throws SQLException, ClassNotFoundException {
+    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
         return null;
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CustomerDAOImpl implements CustomerDAO {
     @Override
-    public ArrayList<Customer> getAll() throws SQLException, ClassNotFoundException {
+    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * from customer");
 
         ArrayList<Customer> customerDTOS = new ArrayList<>();

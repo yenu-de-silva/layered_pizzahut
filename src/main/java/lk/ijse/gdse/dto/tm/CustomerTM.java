@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 
-public class CustomerTM {
+public class CustomerTM extends OrderTM {
     private String customer_id;
     private String name;
     private String contact;

@@ -13,7 +13,7 @@ import java.util.List;
 public class InventoryDAOImpl implements InventoryDAO {
 
     @Override
-    public ArrayList<Inventory> getAll() throws SQLException, ClassNotFoundException {
+    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * from inventory");
 
         ArrayList<Inventory> inventoryDTOS = new ArrayList<>();

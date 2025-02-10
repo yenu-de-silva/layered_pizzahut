@@ -2,17 +2,19 @@ package lk.ijse.gdse.dao.custom.Impl;
 
 import lk.ijse.gdse.dao.SQLUtil;
 import lk.ijse.gdse.dao.custom.EmployeeDAO;
+import lk.ijse.gdse.entity.Customer;
 import lk.ijse.gdse.entity.Employee;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
 
 
     @Override
-    public ArrayList<Employee> getAll() throws SQLException, ClassNotFoundException {
+    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM employee");
 
         ArrayList<Employee> employeeDTOS = new ArrayList<>();

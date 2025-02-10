@@ -1,8 +1,9 @@
 package lk.ijse.gdse.dao.custom.Impl;
 
 import lk.ijse.gdse.dao.SQLUtil;
-import lk.ijse.gdse.dao.custom.SupplierDAO;
+import lk.ijse.gdse.dao.custom.ItemDAO;
 import lk.ijse.gdse.entity.Customer;
+import lk.ijse.gdse.entity.Item;
 import lk.ijse.gdse.entity.Supplier;
 
 import java.sql.ResultSet;
@@ -10,24 +11,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SupplierDAOImpl implements SupplierDAO {
+public class ItemDAOImpl implements ItemDAO {
+
     @Override
     public List<Customer> getAll() throws SQLException, ClassNotFoundException {
-        ResultSet rst = SQLUtil.execute("SELECT * from inventory");
+        ResultSet rst = SQLUtil.execute("SELECT * from items");
 
-        ArrayList<Supplier> supplierDTOS = new ArrayList<>();
+        ArrayList<Item> itemDTOS = new ArrayList<>();
 
         while (rst.next()) {
-            Supplier supplierDTO = new Supplier(
+            Item itemDTO = new Item(
                     rst.getString(1),
                     rst.getString(2),
-                    rst.getString(3),
-                    rst.getString(4),
-                    rst.getString(5)
+                    rst.getInt(3),
+                    rst.getDouble(4)
             );
-            supplierDTOS.add(supplierDTO);
+            itemDTOS.add(itemDTO);
         }
-        return supplierDTOS;
+        return itemDTOS;
     }
 
     @Override
@@ -41,27 +42,28 @@ public class SupplierDAOImpl implements SupplierDAO {
     }
 
     @Override
+    public boolean save(Item dto) throws SQLException, ClassNotFoundException {
+        return SQLUtil.execute("INSERT INTO item (item_id, name, quantity, price) VALUES (?, ?, ?, ?)",dto.getItem_id(),dto.getName(),dto.getQuantity(),dto.getPrice());
+    }
+
+    @Override
+    public boolean update(Item dto) throws SQLException, ClassNotFoundException {
+        return SQLUtil.execute("UPDATE item SET name = ?, quantity = ?, price = ? WHERE item_id = ?",dto.getName(),dto.getQuantity(),dto.getPrice(),dto.getItem_id());
+    }
+
+    @Override
     public boolean exist(String id) throws SQLException, ClassNotFoundException {
         return false;
     }
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("select supplier_id from supplier",id);
+        return SQLUtil.execute("DELETE FROM item WHERE item_id = ?");
     }
 
     @Override
     public String generateNewId() throws SQLException, ClassNotFoundException {
-        ResultSet rst =SQLUtil.execute("select supplier_id from supplier order by supplier_id desc limit 1");
-
-        if (rst.next()) {
-            String lastId = rst.getString(1);
-            String substring = lastId.substring(1);
-            int i = Integer.parseInt(substring);
-            int newIdIndex = i + 1;
-            return String.format("S%03d", newIdIndex);
-        }
-        return "S001";
+        return SQLUtil.execute("SELECT MAX(item_id) FROM item");
     }
 
     @Override

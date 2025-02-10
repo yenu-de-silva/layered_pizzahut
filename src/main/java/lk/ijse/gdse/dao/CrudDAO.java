@@ -1,10 +1,12 @@
 package lk.ijse.gdse.dao;
 
+import lk.ijse.gdse.entity.Customer;
+
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 public interface CrudDAO<T> extends SuperDAO{
-    ArrayList<T> getAll() throws SQLException, ClassNotFoundException;
+    List<Customer> getAll() throws SQLException, ClassNotFoundException;
     boolean save(T dto) throws SQLException, ClassNotFoundException;
     boolean update(T dto) throws SQLException, ClassNotFoundException;
     boolean exist(String id) throws SQLException, ClassNotFoundException;

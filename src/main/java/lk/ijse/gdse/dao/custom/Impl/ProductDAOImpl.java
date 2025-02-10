@@ -2,16 +2,18 @@ package lk.ijse.gdse.dao.custom.Impl;
 
 import lk.ijse.gdse.dao.SQLUtil;
 import lk.ijse.gdse.dao.custom.ProductDAO;
+import lk.ijse.gdse.entity.Customer;
 import lk.ijse.gdse.entity.Product;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDAOImpl implements ProductDAO {
 
     @Override
-    public ArrayList getAll() throws SQLException, ClassNotFoundException {
+    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * from product");
 
         ArrayList<Product> productDTOS = new ArrayList<>();
