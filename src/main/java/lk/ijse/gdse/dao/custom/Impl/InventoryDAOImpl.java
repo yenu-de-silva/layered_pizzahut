@@ -32,18 +32,12 @@ public class InventoryDAOImpl implements InventoryDAO {
 
     @Override
     public boolean save(Inventory dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("INSERT INTO inventory(inventory_id, product_id, supplier_id, quantity, last_updated) VALUES (?, ?, ?, ?,?)",
-                dto.getInventory_id(),
-                dto.getProduct_id(),
-                dto.getSupplier_id(),
-                dto.getQuantity(),
-                dto.getLast_updated()
-        );
+        return SQLUtil.execute("INSERT INTO inventory(inventory_id, product_id, supplier_id, quantity, last_updated) VALUES (?, ?, ?, ?,?",dto.getInventory_id(),dto.getProduct_id(),dto.getSupplier_id(),dto.getQuantity(),dto.getLast_updated());
     }
 
     @Override
     public boolean update(Inventory dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("UPDATE inventory SET product_id=?, supplier_id=? , quantity=?, last_updated=? WHERE inventory_id=?");
+        return SQLUtil.execute("UPDATE inventory SET product_id=?, supplier_id=? , quantity=?, last_updated=? WHERE inventory_id=?",dto.getProduct_id(),dto.getSupplier_id(),dto.getQuantity(),dto.getLast_updated(),dto.getInventory_id());
     }
 
     @Override
