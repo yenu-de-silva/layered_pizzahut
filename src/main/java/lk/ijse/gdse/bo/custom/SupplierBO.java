@@ -10,7 +10,7 @@ import java.util.List;
 public interface SupplierBO extends SuperBO {
     List<SupplierTM> getAllSuppliers() throws SQLException, ClassNotFoundException;
 
-    String getNextSupplierId() throws SQLException, ClassNotFoundException;
+    int getNextSupplierId() throws SQLException, ClassNotFoundException;
 
     boolean saveSupplier(SupplierDTO supplierDTO) throws SQLException, ClassNotFoundException;
 

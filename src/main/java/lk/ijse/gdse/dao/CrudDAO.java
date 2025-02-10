@@ -1,7 +1,5 @@
 package lk.ijse.gdse.dao;
 
-import lk.ijse.gdse.entity.Customer;
-
 import java.sql.SQLException;
 import java.util.List;
 

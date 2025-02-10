@@ -1,7 +1,6 @@
 package lk.ijse.gdse.dao.custom.Impl;
 
 import lk.ijse.gdse.dao.custom.PaymentDAO;
-import lk.ijse.gdse.entity.Customer;
 import lk.ijse.gdse.entity.Payment;
 
 import java.sql.SQLException;

@@ -2,7 +2,6 @@ package lk.ijse.gdse.dao.custom.Impl;
 
 import lk.ijse.gdse.dao.SQLUtil;
 import lk.ijse.gdse.dao.custom.DepartmentDAO;
-import lk.ijse.gdse.entity.Customer;
 import lk.ijse.gdse.entity.Department;
 
 import java.sql.ResultSet;

@@ -1,6 +1,8 @@
 package lk.ijse.gdse.dao;
 
+import lk.ijse.gdse.bo.custom.Impl.DeliveryBOImpl;
 import lk.ijse.gdse.bo.custom.Impl.InventoryBOImpl;
+import lk.ijse.gdse.bo.custom.Impl.UserBOImpl;
 import lk.ijse.gdse.dao.custom.Impl.*;
 import lk.ijse.gdse.dao.custom.ProductDAO;
 import lk.ijse.gdse.entity.Customer;
@@ -17,7 +19,7 @@ public class DAOFactory {
         return daoFactory==null?daoFactory=new DAOFactory():daoFactory;
     }
     public enum DAOType {
-        CUSTOMER,DEPARTMENT,EMPLOYEE,PAYMENT,PRODUCT,INVENTORY,SUPPLIER,ITEM,ORDER,SALARY
+        CUSTOMER,DEPARTMENT,EMPLOYEE,PAYMENT,PRODUCT,INVENTORY,SUPPLIER,ITEM,ORDER,SALARY,User,DELIVERY,MANAGE
     }
     public SuperDAO getDAO(DAOType type) {
         switch (type) {
@@ -41,6 +43,14 @@ public class DAOFactory {
                                                     return new OrderDAOImpl();
                                                     case SALARY:
                                                         return new SalaryDAOImpl();
+                                                                case User:
+                                                                    return new UserBOImpl();
+                                                                case DELIVERY:
+                                                                    return new DeliveryBOImpl();
+                                                                case MANAGE:
+                                                                    return new ManageBOImpl();
+
+
 
 
             default:

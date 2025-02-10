@@ -2,9 +2,7 @@ package lk.ijse.gdse.dao.custom.Impl;
 
 import lk.ijse.gdse.dao.SQLUtil;
 import lk.ijse.gdse.dao.custom.ItemDAO;
-import lk.ijse.gdse.entity.Customer;
 import lk.ijse.gdse.entity.Item;
-import lk.ijse.gdse.entity.Supplier;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

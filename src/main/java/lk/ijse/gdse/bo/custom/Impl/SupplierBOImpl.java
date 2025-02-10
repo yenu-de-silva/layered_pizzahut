@@ -5,7 +5,6 @@ import lk.ijse.gdse.dao.DAOFactory;
 import lk.ijse.gdse.dao.custom.SupplierDAO;
 import lk.ijse.gdse.dto.SupplierDTO;
 import lk.ijse.gdse.dto.tm.SupplierTM;
-import lk.ijse.gdse.entity.Customer;
 import lk.ijse.gdse.entity.Supplier;
 
 import java.sql.SQLException;
@@ -37,7 +36,7 @@ public class SupplierBOImpl implements SupplierBO {
     }
 
     @Override
-    public String getNextSupplierId() throws SQLException, ClassNotFoundException {
+    public int getNextSupplierId() throws SQLException, ClassNotFoundException {
         return supplierDAO.generateNewId();
     }
 

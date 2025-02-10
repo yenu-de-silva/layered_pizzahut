@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="908.0" prefWidth="959.0" style="-fx-background-color: #ff6666;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.DeliveryController">
+   <children>
+      <Label layoutX="35.0" layoutY="224.0" prefHeight="26.0" prefWidth="98.0" text="Delivery Id">
+         <font>
+            <Font name="Bookman Old Style Bold Italic" size="16.0" />
+         </font>
+         <Label fx:id="titleId" />
+      </Label>
+      <Label layoutX="34.0" layoutY="273.0" prefHeight="26.0" prefWidth="133.0" text="OrderId">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="321.0" prefHeight="26.0" prefWidth="150.0" text="Delivery Date">
+         <font>
+            <Font name="Bookman Old Style Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="374.0" prefHeight="26.0" prefWidth="150.0" text="Delivery Address">
+         <font>
+            <Font name="Bookman Old Style Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="deliveryIdField" layoutX="229.0" layoutY="225.0" promptText="Enter Delivery ID" style="-fx-background-color: pink;" />
+      <TextField fx:id="deliveryorderIdfeild" layoutX="229.0" layoutY="274.0" promptText="Enter Order Id" style="-fx-background-color: pink;" />
+      <TextField fx:id="deliverydateField" layoutX="229.0" layoutY="322.0" promptText="Enter Delivery Date" style="-fx-background-color: pink;" />
+      <TextField fx:id="deliveryaddressField" layoutX="229.0" layoutY="375.0" promptText="Enter Delivery Address" style="-fx-background-color: pink;" />
+      <Button fx:id="btnReset" layoutX="212.0" layoutY="496.0" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: yellow;" text="Reset" textFill="#ac1111">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnDelete" layoutX="390.0" layoutY="496.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: yellow;" text="Delete" textFill="#ac1111">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnUpdate" layoutX="574.0" layoutY="496.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: yellow;" text="Update" textFill="#ac1111">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnSave" layoutX="765.0" layoutY="496.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: yellow;" text="Save" textFill="#ac1111">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <TableView fx:id="tbldelivery" layoutX="-1.0" layoutY="552.0" onMouseClicked="#onClickTable" prefHeight="307.0" prefWidth="950.0">
+        <columns>
+          <TableColumn fx:id="colDeliveryId" prefWidth="196.80002135038376" text="Delivery Id" />
+          <TableColumn fx:id="colOrderId" prefWidth="137.6000213623047" text="Order Id" />
+            <TableColumn fx:id="colDeliveryDate" prefWidth="269.60009765625" text="Delivery Date" />
+            <TableColumn fx:id="colDeliveryAddress" prefWidth="199.20001220703125" text="Delivery Address" />
+            <TableColumn fx:id="colDeliveryStatus" prefWidth="143.19992675781248" text="Delivery Status" />
+        </columns>
+      </TableView>
+      <Pane layoutY="-2.0" prefHeight="58.0" prefWidth="800.0" style="-fx-background-color: dark blue;">
+         <children>
+            <Label alignment="CENTER" layoutX="245.0" layoutY="15.0" prefHeight="46.0" prefWidth="441.0" text="PIZZA HUT DELIVERY SYSTEM">
+               <font>
+                  <Font name="Arial Black" size="24.0" />
+               </font></Label>
+         </children>
+      </Pane>
+      <Label layoutX="35.0" layoutY="417.0" prefHeight="26.0" prefWidth="134.0" text="Delivery Status">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="225.0" />
+      <TextField fx:id="deliveryStatusField1" layoutX="229.0" layoutY="417.0" promptText="Enter Delivery Status" style="-fx-background-color: pink;" />
+      <ImageView fx:id="imageview" fitHeight="114.0" fitWidth="189.0" layoutX="765.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/pizza-hut-new6371.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="26.0" layoutY="56.0" prefHeight="31.0" prefWidth="450.0" text="Streamlining Pizza Hut's Delivery Experience" textAlignment="CENTER" textFill="#1eecca">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="353.0" layoutY="114.0" text="Efficient Order Management" textFill="#1ae0e7">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="84.0" layoutY="87.0" text="Real-Time Tracking, and Seamless Customer Satisfaction!" textFill="#2decdf">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="EmployeeIdField1" layoutX="633.0" layoutY="221.0" promptText="Enter Employee ID" style="-fx-background-color: pink;" />
+      <Label layoutX="475.0" layoutY="224.0" prefHeight="26.0" prefWidth="114.0" text="Employee Id">
+         <font>
+            <Font name="Bookman Old Style Bold Italic" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
