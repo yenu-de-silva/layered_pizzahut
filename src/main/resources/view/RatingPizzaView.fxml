@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="300.0" prefWidth="100.0" style="-fx-background-image: WHITE;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.RatingPizzaController">
+   <children>
+      <Label fx:id="CHOICEOFCRUSTPIZZAId" alignment="CENTER" layoutX="309.0" layoutY="7.0" prefHeight="35.0" prefWidth="381.0" text="CHOICE OF CRUST PIZZA ">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="image3Id" fitHeight="48.0" fitWidth="70.0" layoutX="286.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Pan Tostes.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image1Id" fitHeight="48.0" fitWidth="47.0" layoutX="286.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Pan Tostes.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId4" fitHeight="48.0" fitWidth="47.0" layoutX="492.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Pan Tostes.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="48.0" fitWidth="47.0" layoutX="117.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image2Id" fitHeight="48.0" fitWidth="47.0" layoutX="492.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Pan Tostes.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="367.0" layoutY="71.0" text="Pan tossed" />
+      <Label layoutX="367.0" layoutY="128.0" text="Thin Crust" />
+      <Label layoutX="575.0" layoutY="62.0" text="Cheese Blast" />
+      <Label layoutX="575.0" layoutY="128.0" text="Thin Crust cheese Blast" />
+      <Label fx:id="SizesId" layoutX="979.0" layoutY="62.0" prefHeight="18.0" prefWidth="47.0" text="Sizes ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageSizeId1" fitHeight="100.0" fitWidth="100.0" layoutX="1069.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/download.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="1084.0" layoutY="53.0" text="Regular 7" />
+      <Label layoutX="1086.0" layoutY="71.0" text="Inch Size" />
+      <ImageView fx:id="imageSizeId2" fitHeight="100.0" fitWidth="100.0" layoutX="1158.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/download.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="1182.0" layoutY="54.0" text="Big 10" />
+      <Label layoutX="1175.0" layoutY="71.0" text="Inch Size" />
+      <Label fx:id="line1Id" alignment="CENTER" layoutY="212.0" prefHeight="58.0" prefWidth="1448.0" style="-fx-background-color: Orange;" text="VEG PIZZAS - BESTSELLERS">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageId8" fitHeight="92.0" fitWidth="113.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/margherita-pizza-22-2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId11" fitHeight="92.0" fitWidth="113.0" layoutX="859.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Paneer Makhni.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId10" fitHeight="92.0" fitWidth="113.0" layoutX="557.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/crowded house.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId9" fitHeight="92.0" fitWidth="113.0" layoutX="277.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Screenshot 2024-11-19 191415.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId12" fitHeight="92.0" fitWidth="113.0" layoutX="1094.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/paneer Tikka.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageI13" fitHeight="92.0" fitWidth="113.0" layoutX="1374.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/veggie paradise.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="141.0" layoutY="274.0" text="DOUBLE CHEESE" textFill="#5e9933">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="167.0" layoutY="292.0" text="MARGHERITA" textFill="#5c9134">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="182.0" layoutY="320.0" text="Good Ol' Classic" />
+      <Label layoutX="182.0" layoutY="340.0" text="Regular ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="197.0" layoutY="357.0" text="Big ">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="232.0" layoutY="340.0" text="199" />
+      <Label layoutX="232.0" layoutY="358.0" text="349" />
+      <Label layoutX="440.0" layoutY="283.0" text="FARMER'S MARKET" textFill="#5e9933">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="479.0" layoutY="303.0" />
+      <Label layoutX="454.0" layoutY="320.0" text="Capsicum, Onion" />
+      <Label layoutX="472.0" layoutY="348.0" text="Regular">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="479.0" layoutY="367.0" text="Big">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="521.0" layoutY="367.0" text="379" />
+      <Label layoutX="521.0" layoutY="349.0" text="219" />
+      <Label layoutX="744.0" layoutY="275.0" text="SPICY" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="759.0" layoutY="292.0" text="MEXICANO" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="726.0" layoutY="312.0" text="Red Paprika , Jalapeno," />
+      <Label layoutX="759.0" layoutY="350.0" text="Regular">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="809.0" layoutY="350.0" text="269" />
+      <Label layoutX="759.0" layoutY="368.0" text="Big">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="809.0" layoutY="367.0" text="469" />
+      <Label layoutX="996.0" layoutY="275.0" text="PANEER" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1025.0" layoutY="293.0" text="TIKKA" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1007.0" layoutY="312.0" text="Paneer Tikka" />
+      <Label layoutX="1012.0" layoutY="350.0" text="Regular">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1055.0" layoutY="350.0" text="269" />
+      <Label layoutX="1012.0" layoutY="368.0" text="Big">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="1055.0" layoutY="368.0" text="469" />
+      <Label layoutX="1275.0" layoutY="275.0" text="VEGGIE" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1288.0" layoutY="292.0" text="PARADISE" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="1246.0" layoutY="312.0" text="Olives , Red Paprika , " />
+      <Label layoutX="1261.0" layoutY="349.0" text="Regular">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1313.0" layoutY="350.0" prefHeight="18.0" prefWidth="20.0" text="299" />
+      <Label layoutX="1265.0" layoutY="368.0" text="Big">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1313.0" layoutY="367.0" text="529" />
+      <Label layoutX="735.0" layoutY="331.0" text="Golden Corn , Onion" />
+      <Label layoutX="1040.0" layoutY="329.0" text="Onion" />
+      <Label layoutX="1219.0" layoutY="331.0" text="Capsicum , tomato , onion" />
+      <ImageView fx:id="imaageId5" fitHeight="150.0" fitWidth="200.0" layoutX="29.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/pngtree-cartoon-girl-chef-carries-a-pan-full-of-pizza-clipart-vector-png-image_12271386.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId6" fitHeight="126.0" fitWidth="132.0" layoutX="758.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Pan Tostes.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId14" fitHeight="126.0" fitWidth="88.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/peri peri paneer.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId15" fitHeight="100.0" fitWidth="123.0" layoutX="277.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Peri Peri Pinner.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId16" fitHeight="92.0" fitWidth="113.0" layoutX="553.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Pizza Vegi 1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId17" fitHeight="92.0" fitWidth="113.0" layoutX="859.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Vegi pizza 2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="92.0" fitWidth="113.0" layoutX="1342.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Pizza Vegi 4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId18" fitHeight="92.0" fitWidth="113.0" layoutX="1120.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/vegi pizza 3.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="127.0" layoutY="454.0" text="PERI PERI PANEER" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="148.0" layoutY="472.0" text="Peri Peri Paneer " textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="175.0" layoutY="491.0" prefHeight="18.0" prefWidth="67.0" text="GoldenCorn " />
+      <Label layoutX="147.0" layoutY="510.0" text="Red Paprika , Capsicum" />
+      <Label layoutX="174.0" layoutY="531.0" text="Regular">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="182.0" layoutY="548.0" text="Big">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="433.0" layoutY="455.0" text="PANEER MAKHNI" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="425.0" layoutY="478.0" text="Paneer Tikka , Capsicum">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="456.0" layoutY="496.0" text="Tomato ,  Onion" />
+      <Label layoutX="458.0" layoutY="518.0" text="Regular">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="463.0" layoutY="538.0" text="Big">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="689.0" layoutY="454.0" prefHeight="19.0" prefWidth="150.0" text="ALL VEGGIES MADNESS" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="697.0" layoutY="472.0" text="Mushroom, Olives , Jalapeno," />
+      <Label layoutX="719.0" layoutY="491.0" text="Golden corn , Capsicum , " />
+      <Label layoutX="763.0" layoutY="510.0" text="Onion , Tomato " />
+      <Label layoutX="756.0" layoutY="529.0" text="Regular">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="993.0" layoutY="455.0" text="PANEER OVERLOAD" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1046.0" layoutY="540.0" text="Big">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1005.0" layoutY="478.0" text="Peri Peri Paneer" />
+      <Label layoutX="1083.0" layoutY="540.0" text="599" />
+      <Label layoutX="1083.0" layoutY="520.0" text="319" />
+      <Label layoutX="1027.0" layoutY="520.0" text="Regular">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="989.0" layoutY="496.0" text="Paneer Tikka , Jalapeno " />
+      <Label layoutX="228.0" layoutY="530.0" text="299" />
+      <Label layoutX="228.0" layoutY="548.0" text="529" />
+      <Label layoutX="1234.0" layoutY="455.0" text="CROWDED HOUSE" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1266.0" layoutY="540.0" text="Big">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1245.0" layoutY="520.0" text="Regular">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1303.0" layoutY="520.0" text="319" />
+      <Label layoutX="1305.0" layoutY="540.0" text="599" />
+      <Label layoutX="1271.0" layoutY="476.0" prefHeight="27.0" prefWidth="123.0" text="Cheese " />
+      <Label layoutX="1255.0" layoutY="500.0" text="Golden Corn" />
+      <Label layoutX="506.0" layoutY="518.0" text="299" />
+      <Label layoutX="506.0" layoutY="538.0" text="529" />
+      <Label layoutX="771.0" layoutY="548.0" prefHeight="19.0" prefWidth="24.0" text="Big">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="809.0" layoutY="530.0" text="269" />
+      <Label layoutX="809.0" layoutY="549.0" text="469" />
+      <Label fx:id="line2Id" alignment="CENTER" layoutX="2.0" layoutY="581.0" prefHeight="58.0" prefWidth="1448.0" style="-fx-background-color: Orange;" text="NON VEG PIZZAS - BESTSELLERS">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageId19" fitHeight="106.0" fitWidth="86.0" layoutY="639.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Diavola-Pizza-0014.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId20" fitHeight="92.0" fitWidth="113.0" layoutX="292.0" layoutY="639.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/cowboy chicken pizza.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image18" fitHeight="92.0" fitWidth="113.0" layoutX="642.0" layoutY="639.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/peri peri chicken.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image19" fitHeight="110.0" fitWidth="135.0" layoutX="1003.0" layoutY="639.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/კაპრიჩოზა.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image20" fitHeight="92.0" fitWidth="113.0" layoutX="1338.0" layoutY="639.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/chiken tikka.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image21" fitHeight="92.0" fitWidth="113.0" layoutY="818.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/double trouble chick pizza.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image23" fitHeight="92.0" fitWidth="113.0" layoutX="641.0" layoutY="818.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/mojos chicken pizza.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image22" fitHeight="92.0" fitWidth="113.0" layoutX="277.0" layoutY="818.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/butter chick.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image24" fitHeight="100.0" fitWidth="80.0" layoutX="1025.0" layoutY="812.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/chiken full smash.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image25" fitHeight="92.0" fitWidth="113.0" layoutX="1358.0" layoutY="805.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/the meat eater.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="147.0" layoutY="639.0" text="CHICKEN SMOKEY JOE" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="165.0" layoutY="657.0" text="Smokey BBQ Chicken," />
+      <Label layoutX="207.0" layoutY="677.0" text="Onion" />
+      <Label layoutX="172.0" layoutY="697.0" text="Regular">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="189.0" layoutY="715.0" text="Big">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="221.0" layoutY="697.0" text="249" />
+      <Label layoutX="221.0" layoutY="714.0" text="429" />
+      <Label layoutX="482.0" layoutY="639.0" text="COWBOY CHICKEN" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="487.0" layoutY="656.0" prefHeight="18.0" prefWidth="122.0" text="Herb Grilled Chicken," />
+      <Label layoutX="523.0" layoutY="675.0" text="Golden Corn" />
+      <Label layoutX="501.0" layoutY="697.0" text="Regular">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="547.0" layoutY="697.0" text="249" />
+      <Label layoutX="517.0" layoutY="714.0" text="Big" />
+      <Label layoutX="547.0" layoutY="714.0" text="429" />
+      <Label layoutX="837.0" layoutY="639.0" text="PERI PERI CHICKEN" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="851.0" layoutY="657.0" text="Peri Peri Chicken," />
+      <Label layoutX="868.0" layoutY="677.0" text="Red Paprika" />
+      <Label layoutX="854.0" layoutY="695.0" text="Regular" />
+      <Label layoutX="900.0" layoutY="695.0" text="289" />
+      <Label layoutX="862.0" layoutY="714.0" prefHeight="18.0" prefWidth="34.0" text="Big" />
+      <Label layoutX="896.0" layoutY="714.0" text="499" />
+      <Label layoutX="1188.0" layoutY="639.0" text="BBQ CHICKEN" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1210.0" layoutY="657.0" text="BBQ Chiken ,Jalapeno," />
+      <Label layoutX="1196.0" layoutY="678.0" text="Golden Corn ,Tamato" />
+      <Label layoutX="1205.0" layoutY="697.0" text="Regular" />
+      <Label layoutX="1261.0" layoutY="697.0" text="289" />
+      <Label layoutX="1226.0" layoutY="715.0" text="Big" />
+      <Label layoutX="149.0" layoutY="809.0" text="CHICKEN TIKKA" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="170.0" layoutY="888.0" text="Big" />
+      <Label layoutX="181.0" layoutY="846.0" text="Tomato , Onion" />
+      <Label layoutX="155.0" layoutY="870.0" text="Regular" />
+      <Label layoutX="185.0" layoutY="826.0" text="Chicken Tikka," />
+      <Label layoutX="201.0" layoutY="871.0" prefHeight="18.0" prefWidth="34.0" text="289" />
+      <Label layoutX="459.0" layoutY="817.0" text="DOUBLE TROUBLE CHICKEN" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="493.0" layoutY="888.0" text="Big" />
+      <Label layoutX="492.0" layoutY="834.0" text="Herb Grilled Chicken ," />
+      <Label layoutX="486.0" layoutY="872.0" text="Regular" />
+      <Label layoutX="500.0" layoutY="852.0" text="Chicken Tikka , Olives" />
+      <Label layoutX="538.0" layoutY="872.0" text="319" />
+      <Label layoutX="870.0" layoutY="871.0" prefHeight="19.0" prefWidth="18.0" text="Big" />
+      <Label layoutX="854.0" layoutY="855.0" text="Regular" />
+      <Label layoutX="906.0" layoutY="855.0" text="319" />
+      <Label layoutX="906.0" layoutY="872.0" text="579" />
+      <Label layoutX="859.0" layoutY="818.0" text="BUTTER CHICKEN" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="765.0" layoutY="837.0" text="Tandoori Chicken , Capsicum , Onion , Tomato" />
+      <Label layoutX="1221.0" layoutY="817.0" text="THE MEAT EATER" textFill="#5e9933">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1141.0" layoutY="855.0" text="Herb Grilled Chicken ," />
+      <Label layoutX="1260.0" layoutY="855.0" text="Peri Peri Chicken" />
+      <Label layoutX="1227.0" layoutY="835.0" text="Garlic Roast Chicken" />
+      <Label layoutX="1196.0" layoutY="872.0" text="Smokey BBQ Chicken" />
+      <Label layoutX="1217.0" layoutY="888.0" text="Regular" />
+      <Label layoutX="199.0" layoutY="888.0" text="499" />
+      <Label layoutX="537.0" layoutY="888.0" text="579" />
+      <Label layoutX="1261.0" layoutY="715.0" text="499" />
+      <Label layoutX="1261.0" layoutY="888.0" text="349" />
+      <Label layoutX="1218.0" layoutY="906.0" text="Big" />
+      <Label layoutX="1262.0" layoutY="906.0" text="649" />
+      <Label fx:id="tagId" layoutX="100.0" layoutY="952.0" prefHeight="27.0" prefWidth="187.0" text="SCAN &amp; DOWNLOAD">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Pane layoutX="325.0" layoutY="916.0" prefHeight="71.0" prefWidth="200.0" style="-fx-background-color: Black;">
+         <children>
+            <ImageView fx:id="EATCLUBimage" fitHeight="58.0" fitWidth="73.0" layoutX="24.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pizzahubsystem/images/EAT CLUB PNG.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Scanimage" fitHeight="58.0" fitWidth="73.0" layoutX="107.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pizzahubsystem/images/Scan URL.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label fx:id="discountId" layoutX="576.0" layoutY="952.0" text="30% OFF EVERYTIME">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="next_btn" layoutX="1266.0" layoutY="926.0" mnemonicParsing="false" onAction="#nextOnAction" prefHeight="51.0" prefWidth="124.0" style="-fx-background-color: yellow;" text="Next">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

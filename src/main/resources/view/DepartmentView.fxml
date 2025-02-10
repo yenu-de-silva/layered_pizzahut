@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="724.0" prefWidth="887.0" style="-fx-background-color: #ff6666;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.DepartementController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="48.0" prefWidth="865.0" spacing="10.0">
+         <children>
+            <Label prefHeight="38.0" prefWidth="406.0" text="Department Management">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <HBox layoutX="14.0" layoutY="61.0" prefHeight="27.0" prefWidth="481.0" spacing="10.0">
+         <children>
+            <Label prefHeight="27.0" prefWidth="213.0" text="Department ID">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="departmentIdField" onAction="#handledepartmentId" prefHeight="26.0" prefWidth="244.0" promptText="Enter Department Id" style="-fx-background-color: pink;" />
+         </children>
+      </HBox>
+      <HBox layoutX="13.0" layoutY="119.0" prefHeight="27.0" prefWidth="482.0" spacing="10.0">
+         <children>
+            <Label prefHeight="31.0" prefWidth="214.0" text="Department Name">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="departmentNameField" onAction="#handleDepartmentName" prefHeight="26.0" prefWidth="244.0" promptText="Enter Department Name" style="-fx-background-color: pink;" />
+         </children>
+      </HBox>
+      <HBox layoutX="13.0" layoutY="185.0" prefHeight="27.0" prefWidth="482.0" spacing="10.0">
+         <children>
+            <Label prefHeight="31.0" prefWidth="218.0" text="Manager Name">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="managerNameField" onAction="#handlemanagername" prefHeight="26.0" prefWidth="246.0" promptText="Manager Name" style="-fx-background-color: pink;" />
+         </children>
+      </HBox>
+      <HBox layoutX="12.0" layoutY="249.0" prefHeight="27.0" prefWidth="482.0" spacing="10.0">
+         <children>
+            <Label prefHeight="31.0" prefWidth="220.0" text="Number of Employees">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="numEmployeesField" onAction="#handleNumberOfEmployees" prefHeight="26.0" prefWidth="243.0" promptText="Number of Employees" style="-fx-background-color: pink;" />
+         </children>
+      </HBox>
+      <HBox layoutX="12.0" layoutY="311.0" prefHeight="27.0" prefWidth="482.0" spacing="10.0">
+         <children>
+            <Label prefHeight="31.0" prefWidth="222.0" text="Description">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="descriptionArea" onAction="#handledescription" prefHeight="26.0" prefWidth="246.0" promptText="Enter Description" style="-fx-background-color: pink;" />
+         </children>
+      </HBox>
+      <HBox layoutX="310.0" layoutY="398.0" prefHeight="26.0" prefWidth="541.0" spacing="10.0">
+         <children>
+            <Button fx:id="delete_btn" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: yellow;" text="Delete" />
+            <Button fx:id="save_btn" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: yellow;" text="Save" />
+            <Button fx:id="cancel_btn" mnemonicParsing="false" onAction="#cancleOnAction" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: yellow;" text="Cancle" />
+         </children>
+      </HBox>
+      <TableView fx:id="departmentTableView" layoutY="450.0" prefHeight="287.0" prefWidth="887.0">
+        <columns>
+          <TableColumn fx:id="deptIdColumn" prefWidth="159.99999618530273" text="Department ID" />
+          <TableColumn fx:id="deptNameColumn" prefWidth="207.2000732421875" text="Department Name" />
+            <TableColumn fx:id="managerNameColumn" prefWidth="131.20001220703125" text="Manager Name" />
+            <TableColumn fx:id="employeeCountColumn" prefWidth="204.0" text="Number of Employees" />
+            <TableColumn fx:id="deptdescriptionColumn" prefWidth="264.00006103515625" text=" Description" />
+        </columns>
+      </TableView>
+      <ImageView fx:id="imageview" fitHeight="90.0" fitWidth="151.0" layoutX="629.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/pizza hut.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

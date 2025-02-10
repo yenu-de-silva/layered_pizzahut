@@ -1,0 +1,28 @@
+pane{
+    -fx-background-color: #ff0000;
+}
+.button {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+.background {
+    -fx-background-color: #FFD700;
+}
+
+.label {
+    -fx-text-fill: #FFD700;
+}
+
+.text-field, .table-view {
+    -fx-border-color: #FFD700;
+    -fx-background-color: #FFFACD;
+}
+
+.table-view .column-header {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: black;
+}
+
+

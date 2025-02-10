@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" prefHeight="724.0" prefWidth="887.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.PizzaHubHomeController">
+   <children>
+
+      <Button fx:id="start_btn" layoutX="649.0" layoutY="611.0" mnemonicParsing="false" onAction="#startOnClick" prefHeight="73.0" prefWidth="182.0" style="-fx-background-color: white;" text="START" textFill="#cc1b3d">
+         <font>
+            <Font name="System Bold Italic" size="34.0" />
+         </font>
+      </Button>
+      <Label fx:id="THEPIZZAHUTId" alignment="CENTER" layoutX="264.0" layoutY="41.0" text="THE PIZZA HUT" textFill="#ff1c1c">
+         <font>
+            <Font name="Agency FB Bold" size="83.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="PizzaChefImageId" fitHeight="414.0" fitWidth="356.0" layoutX="305.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/Chef Girl Pizza.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PizzaImageId" fitHeight="177.0" fitWidth="161.0" layoutX="67.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pizzahubsystem/images/pizza photo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

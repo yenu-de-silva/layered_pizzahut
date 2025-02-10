@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="724.0" prefWidth="921.0" style="-fx-background-color: #ff6666;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.EmployeeController">
+   <children>
+      <VBox prefHeight="100.0" prefWidth="922.0">
+         <children>
+            <Label alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="616.0" text="Employee Management" textAlignment="CENTER" textFill="#ad1d1d">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="71.0" fitWidth="172.0">
+               <image>
+                  <Image url="@../pizzahubsystem/images/pizza-hut-new6371.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <TableView id="employee" fx:id="tblEmployeeid" layoutX="1.0" layoutY="389.0" prefHeight="214.0" prefWidth="922.0">
+        <columns>
+          <TableColumn fx:id="colEmpId" prefWidth="164.79998397827148" text="Employee Id" />
+          <TableColumn fx:id="colName" prefWidth="164.79998397827148" text="Name" />
+            <TableColumn fx:id="colPosition" prefWidth="164.79998397827148" text="Position" />
+            <TableColumn fx:id="colDeptId" prefWidth="252.00006103515625" text="DepartmentId" />
+            <TableColumn fx:id="colHireDate" prefWidth="175.19989013671875" text="Hire Date" />
+        </columns>
+      </TableView>
+      <VBox alignment="CENTER" layoutX="46.0" layoutY="575.0" prefHeight="57.0" prefWidth="830.0" spacing="10.0" />
+      <HBox alignment="CENTER" layoutX="162.0" layoutY="614.0" prefHeight="100.0" prefWidth="574.0" spacing="10.0">
+         <children>
+            <Button fx:id="btn_add" mnemonicParsing="false" onAction="#addOnAction" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: blue;" text="Add" textFill="#a3f439bf" />
+            <Button fx:id="btn_edit" mnemonicParsing="false" onAction="#editOnAction" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: blue;" text="Edit" />
+            <Button fx:id="btn_delete" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: blue;" text="Delete" />
+            <Button fx:id="btn_clear" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: blue;" text="Clear" />
+         </children>
+      </HBox>
+      <Label layoutX="52.0" layoutY="149.0" text="Employee Id" />
+      <Label layoutX="54.0" layoutY="200.0" text="Name" />
+      <Label layoutX="56.0" layoutY="252.0" text="Position" />
+      <Label layoutX="39.0" layoutY="312.0" text="DepartmentId" />
+      <Label layoutX="360.0" layoutY="141.0" text="Hire Date" />
+      <TextField fx:id="txtemployeeid" layoutX="138.0" layoutY="154.0" style="-fx-background-color: yellow;" />
+      <TextField fx:id="txtname" layoutX="138.0" layoutY="205.0" style="-fx-background-color: yellow;" />
+      <TextField fx:id="txtposition" layoutX="138.0" layoutY="257.0" style="-fx-background-color: yellow;" />
+      <TextField fx:id="txtdepartmentid" layoutX="138.0" layoutY="308.0" style="-fx-background-color: yellow;" />
+      <TextField fx:id="txthiredate" layoutX="425.0" layoutY="145.0" style="-fx-background-color: yellow;" />
+   </children>
+</AnchorPane>

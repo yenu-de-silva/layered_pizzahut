@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #ff6666;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.InventoryController">
+   <children>
+      <VBox alignment="CENTER" layoutX="-1.0" prefHeight="644.0" prefWidth="1006.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="78.0" prefWidth="922.0" text="Inventory Management" textAlignment="CENTER" textFill="#c43737">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="87.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pizzahubsystem/images/images (3).jpg" />
+               </image>
+            </ImageView>
+            <TableView fx:id="inventorytable" onSort="#tblInventory" prefHeight="384.0" prefWidth="922.0">
+               <columns>
+                  <TableColumn fx:id="colinventoryId" prefWidth="204.0" text="Inventory Id" />
+                  <TableColumn fx:id="colProductId" prefWidth="258.4000244140625" text="Product Id" />
+                  <TableColumn fx:id="colSupplierId" prefWidth="160.80001831054688" text="Supplier Id" />
+                  <TableColumn fx:id="colQuantity" prefWidth="184.800048828125" text="Quantity" />
+                  <TableColumn fx:id="colLast_Updated" prefWidth="227.19989013671875" text="Last_Updated" />
+               </columns>
+            </TableView>
+      
+            <HBox prefHeight="30.0" prefWidth="1011.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="178.0" text="Inventory Id" textFill="#c9004d">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtInventoryId" alignment="CENTER" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: yellow;" />
+                  <Label alignment="CENTER" prefHeight="28.0" prefWidth="158.0" text="ProductId" textFill="#c9004d">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtproductId" alignment="CENTER" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: yellow;" />
+                  <Label fx:id="priceFeild" alignment="CENTER" prefHeight="30.0" prefWidth="160.0" text="Supplier Id" textFill="#c9004d">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtSupplierId" alignment="CENTER" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: yellow;" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" layoutX="17.0" layoutY="716.0" prefHeight="54.0" prefWidth="922.0" spacing="10.0">
+         <children>
+            <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#AddOnAction" prefHeight="26.0" prefWidth="121.0" style="-fx-background-color: #7fd1ec;" text="Add  " textAlignment="CENTER" />
+            <Button fx:id="btnUpdated" mnemonicParsing="false" onAction="#UpdateOnAction" prefHeight="26.0" prefWidth="133.0" style="-fx-background-color: #7fd1ec;" text="Update" textAlignment="CENTER" />
+            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="26.0" prefWidth="133.0" style="-fx-background-color: #7fd1ec;" text="Delete" textAlignment="CENTER" />
+            <Button fx:id="btnSave" layoutX="267.0" layoutY="24.0" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="26.0" prefWidth="121.0" style="-fx-background-color: #7fd1ec;" text="Save" textAlignment="CENTER" />
+         </children>
+      </HBox>
+      <HBox layoutX="88.0" layoutY="630.0" prefHeight="30.0" prefWidth="695.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="90.0" text="Quantity" textFill="#ae1b1b">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="quantityId" prefHeight="42.0" prefWidth="150.0" style="-fx-background-color: yellow;" />
+            <Label prefHeight="30.0" prefWidth="158.0" text="Last_Updated" textFill="#c41c62">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtlast_updated" prefHeight="31.0" prefWidth="158.0" style="-fx-background-color: Yellow;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
