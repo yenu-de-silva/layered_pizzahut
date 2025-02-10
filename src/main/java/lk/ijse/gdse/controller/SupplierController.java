@@ -172,7 +172,7 @@ public class SupplierController {
             SupplierTM selectedSupplier = tblsupplier.getSelectionModel().getSelectedItem();
 
             if (selectedSupplier == null) {
-                showError("Error", "Please select a supplier to update.");
+                showError("Error", "Please add a supplier to update.");
                 return;
             }
 
