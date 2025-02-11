@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class UserController {
 
-    UserBO usetBO= (UserBO) BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
+    UserBO userBO= (UserBO) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     public TableView tbluser;
     @FXML
@@ -59,7 +59,7 @@ public class UserController {
 
     private void loadTableData() throws SQLException, ClassNotFoundException {
         ObservableList<UserTM> userTMS = FXCollections.observableArrayList();
-        ArrayList<UserDTO> userList = usetBO.getAllUserIds();
+        ArrayList<UserDTO> userList = userBO.getAllUserIds();
 
         for (UserDTO userDTO : userList) {
             userTMS.add(new UserTM(
@@ -140,7 +140,7 @@ public class UserController {
             String role = txtRole.getText();
 
             UserDTO userDTO = new UserDTO(userId, username, password, email, role);
-            boolean isSaved = usetBO.saveUser(userDTO);
+            boolean isSaved = userBO.saveUser(userDTO);
 
             if (isSaved) {
                 showInfo("Success", "User saved successfully!");
@@ -172,7 +172,7 @@ public class UserController {
             String role = txtRole.getText();
 
             UserDTO userDTO = new UserDTO(userId, username, password, email, role);
-            boolean isUpdated = usetBO.updateUser(userDTO);
+            boolean isUpdated = userBO.updateUser(userDTO);
 
             if (isUpdated) {
                 showInfo("Success", "User updated successfully!");
@@ -196,7 +196,7 @@ public class UserController {
 
         try {
             String userId = selectedUser.getUser_id();
-            boolean isDeleted = usetBO.deleteUser(Integer.parseInt(userId));
+            boolean isDeleted = userBO.deleteUser(Integer.parseInt(userId));
 
             if (isDeleted) {
                 showInfo("Success", "User deleted successfully!");

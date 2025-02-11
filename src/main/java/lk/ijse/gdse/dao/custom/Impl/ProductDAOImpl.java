@@ -53,7 +53,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public int generateNewId() throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("select max(product_id) from product");
     }
 

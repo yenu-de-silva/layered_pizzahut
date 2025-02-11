@@ -10,7 +10,7 @@ public interface InventoryBO extends SuperBO {
 
     List<InventoryDTO> getAllInventoryItems() throws SQLException, ClassNotFoundException;
 
-    String getNextInventoryId() throws SQLException, ClassNotFoundException;
+    int getNextInventoryId() throws SQLException, ClassNotFoundException;
 
     boolean saveInventory(InventoryDTO inventoryDTO) throws SQLException, ClassNotFoundException;
 

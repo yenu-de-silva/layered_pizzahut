@@ -2,7 +2,6 @@ package lk.ijse.gdse.dao.custom.Impl;
 
 import lk.ijse.gdse.dao.SQLUtil;
 import lk.ijse.gdse.dao.custom.SalaryDAO;
-import lk.ijse.gdse.entity.Product;
 import lk.ijse.gdse.entity.Salary;
 
 import java.sql.ResultSet;
@@ -54,8 +53,8 @@ public class SalaryDAOImpl implements SalaryDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
-        return "";
+    public int generateNewId() throws SQLException, ClassNotFoundException {
+        return Integer.parseInt("");
     }
 
     @Override

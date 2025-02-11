@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ManageController {
 
-    ManageBO manageBO= (ManageBO) BOFactory.getInstance().getBO(BOFactory.BOType.Manage);
+    ManageBO manageBO= (ManageBO) BOFactory.getInstance().getBO(BOFactory.BOType.MANAGE);
 
     public TextField manageIdField;
 
@@ -84,7 +84,7 @@ public class ManageController {
 //    }
 
     @FXML
-    public void initialize() throws SQLException {
+    public void initialize() throws SQLException, ClassNotFoundException {
         manageIdCol.setCellValueFactory(new PropertyValueFactory<>("manage_id"));
         inventoryIdCol.setCellValueFactory(new PropertyValueFactory<>("inventory_id"));
         supplierIdCol.setCellValueFactory(new PropertyValueFactory<>("supplier_id"));
@@ -96,7 +96,7 @@ public class ManageController {
         loadManageRecords();
     }
 
-    private void loadManageRecords() throws SQLException {
+    private void loadManageRecords() throws SQLException, ClassNotFoundException {
         ObservableList<ManageTM> manageTMS = FXCollections.observableArrayList();
         List<ManageDTO> sList = manageBO.getAllManageRecords();
         for (ManageDTO manageDTO : sList) {
@@ -116,7 +116,7 @@ public class ManageController {
     }
 
     @FXML
-    public void handleSave(ActionEvent event) {
+    public void handleSave(ActionEvent event) throws ClassNotFoundException {
         String manageId = txtManageId.getText();
         String inventoryId = txtInventoryId.getText();
         String orderId = txtOrderId.getText();
@@ -164,7 +164,7 @@ public class ManageController {
         clearFields();
     }
 
-    public void btnSaveOnAction(ActionEvent actionEvent) throws SQLException {
+    public void btnSaveOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String manageIdFieldText = manageIdField.getText();
         String inventoryIdFieldText = inventoryIdField.getText();
         String supplierIdFieldText = supplierIdField.getText();
@@ -184,7 +184,7 @@ public class ManageController {
         }
     }
 
-    private void refreshPage() throws SQLException {
+    private void refreshPage() throws SQLException, ClassNotFoundException {
         loadTableData();
         btnSave.setDisable(false);
         cancelable.setDisable(false);
@@ -198,7 +198,7 @@ public class ManageController {
         supplierContactNameField.setText("");
     }
 
-    private void loadTableData() throws SQLException {
+    private void loadTableData() throws SQLException, ClassNotFoundException {
         ObservableList<ManageTM> addManage = FXCollections.observableArrayList();
         ArrayList<ManageDTO> list = (ArrayList<ManageDTO>) manageBO.getAllManageRecords();
 

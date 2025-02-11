@@ -4,95 +4,106 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.gdse.bo.BOFactory;
-import lk.ijse.gdse.bo.custom.CustomerBO;
 import lk.ijse.gdse.bo.custom.OrderBO;
 import lk.ijse.gdse.dto.OrderDTO;
 import lk.ijse.gdse.dto.tm.OrderTM;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class OrderController {
+public class OrderController implements Initializable {
 
-    OrderBO orderBO= (OrderBO) BOFactory.getInstance().getBO(BOFactory.BOType.ORDER);
+    private final OrderBO orderBO = (OrderBO) BOFactory.getInstance().getBO(BOFactory.BOType.ORDER);
+    public Label orderDate;
 
     public Label txtorderdate;
-    public Label orderDate;
-    public TextField txtcustomerId;
+
     public TextField txtcustomerId1;
-    public Label lblItemPrice;
-    public TableView tblorder;
-    public TableColumn colorderId;
-    public TableColumn colorderDate;
-    public TableColumn colcustomerId;
-    public Button btnrest;
-    public Button btnplaceorder;
-    public TextField txttotalprice;
-    public TextField txtcustomerId2;
+
     public DatePicker datetxt;
-    @FXML
-    private Button btnPlaceOrder;
 
-    @FXML
-    private Button btnReset;
+    public TextField txtcustomerId;
 
-    @FXML
-    private TableColumn<OrderDTO, String> colStatus;
+    public TextField txttotalprice;
 
-    @FXML
-    private TableColumn<OrderDTO, Double> colTotal;
+    public TextField txtcustomerId2;
 
-    @FXML
-    private TableColumn<OrderDTO, String> colCustomerId;
+    public TableView tblorder;
 
-    @FXML
-    private TableColumn<OrderDTO, LocalDate> colOrderDate;
+    public TableColumn colorderId;
 
-    @FXML
-    private TableColumn<OrderDTO, String> colOrderId;
+    public TableColumn colorderDate;
+
+    public TableColumn colcustomerId;
+
+    public Button btnrest;
+
+    public Button btnplaceorder;
 
     @FXML
     private Label lblOrderId;
 
     @FXML
-    private DatePicker dpOrderDate;
-
-    @FXML
-    private TableView<OrderDTO> tblOrder;
-
-    @FXML
-    private TextField txtStatus;
-
+    private TextField txtCustomerId;
 
     @FXML
     private TextField txtTotalPrice;
 
     @FXML
+    private TextField txtStatus;
+
+    @FXML
+    private DatePicker dpOrderDate;
+
+    @FXML
+    private TableView<OrderTM> tblOrder;
+
+    @FXML
+    private TableColumn<OrderTM, String> colOrderId;
+
+    @FXML
+    private TableColumn<OrderTM, LocalDate> colOrderDate;
+
+    @FXML
+    private TableColumn<OrderTM, String> colCustomerId;
+
+    @FXML
+    private TableColumn<OrderTM, Double> colTotal;
+
+    @FXML
+    private TableColumn<OrderTM, String> colStatus;
+
+    @FXML
+    private Button btnPlaceOrder, btnReset;
+
+    @FXML
     void btnPlaceOrderOnAction(ActionEvent event) throws ClassNotFoundException {
         try {
             String orderId = lblOrderId.getText();
-            String customerId = txtcustomerId.getText();
-            String orderDate = String.valueOf(datetxt.getValue());
-            String totalPrice = String.valueOf(Double.parseDouble(txttotalprice.getText()));
-            String status = txtcustomerId2.getText();
-            
+            String customerId = txtCustomerId.getText();
+            LocalDate orderDate = dpOrderDate.getValue();
+            double totalPrice = Double.parseDouble(txtTotalPrice.getText());
+            String status = txtStatus.getText();
+
             if (orderId.isEmpty() || customerId.isEmpty() || orderDate == null || status.isEmpty()) {
                 showAlert("Validation Error", "Please fill in all fields correctly.", Alert.AlertType.WARNING);
                 return;
             }
-            
-            OrderDTO order = new OrderDTO(orderId, orderDate, status, totalPrice, customerId);
-            
-            boolean isSaved = new orderBO().saveOrder(order);
+
+            OrderDTO order = new OrderDTO(orderId, orderDate.toString(), status, String.valueOf(totalPrice), customerId);
+            boolean isSaved = orderBO.saveOrder(order);
 
             if (isSaved) {
                 showAlert("Success", "Order placed successfully!", Alert.AlertType.INFORMATION);
-                loadOrders(); 
-                resetForm();  
+                loadOrders();
+                resetForm();
             } else {
                 showAlert("Error", "Failed to place the order.", Alert.AlertType.ERROR);
             }
@@ -109,53 +120,41 @@ public class OrderController {
         resetForm();
     }
 
-    @FXML
-    public void initialize() throws SQLException, ClassNotFoundException {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         colorderId.setCellValueFactory(new PropertyValueFactory<>("order_id"));
         colorderDate.setCellValueFactory(new PropertyValueFactory<>("order_date"));
-        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-        colTotal.setCellValueFactory(new PropertyValueFactory<>("total_price"));
         colcustomerId.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
-        
-        loadOrders();
-        
-        generateOrderId();
+        colTotal.setCellValueFactory(new PropertyValueFactory<>("total_price"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        try {
+            loadOrders();
+            generateOrderId();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to load orders.", Alert.AlertType.ERROR);
+        }
     }
 
     private void resetForm() {
         lblOrderId.setText("");
-        txtcustomerId.clear();
+        txtCustomerId.clear();
         dpOrderDate.setValue(null);
-        txttotalprice.clear();
-        txtcustomerId2.clear();
+        txtTotalPrice.clear();
+        txtStatus.clear();
     }
 
     private void loadOrders() throws SQLException, ClassNotFoundException {
-
-            ObservableList<OrderTM> orderTMS = FXCollections.observableArrayList();
-            List<OrderTM> sList = orderBO.getAllOrders();
-            for (OrderTM orderDTO : sList) {
-                OrderTM orderTM = new OrderTM(
-                        orderDTO.getOrder_id(),
-                        orderDTO.getOrder_date(),
-                        orderDTO.getStatus(),
-                        orderDTO.getTotal_price(),
-                        orderDTO.getCustomer_id()
-                );
-                orderTMS.add(orderTM);
-            }
-
-            tblorder.setItems(orderTMS);
-        }
+        ObservableList<OrderTM> orderTMS = FXCollections.observableArrayList();
+        List<OrderTM> sList = orderBO.getAllOrders();
+        orderTMS.addAll(sList);
+        tblOrder.setItems(orderTMS);
+    }
 
     private void generateOrderId() {
-        try {
-            String nextOrderId = new orderBO().getNextOrderId();
-            lblOrderId.setText(nextOrderId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            showAlert("Error", "Failed to generate Order ID.", Alert.AlertType.ERROR);
-        }
+        String nextOrderId = orderBO.getNextOrderId();
+        lblOrderId.setText(nextOrderId);
     }
 
     private void showAlert(String title, String message, Alert.AlertType alertType) {

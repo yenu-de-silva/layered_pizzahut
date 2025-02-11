@@ -3,8 +3,8 @@ package lk.ijse.gdse.bo.custom.Impl;
 import lk.ijse.gdse.bo.custom.DeliveryBO;
 import lk.ijse.gdse.dao.DAOFactory;
 import lk.ijse.gdse.dao.custom.DeliveryDAO;
+import lk.ijse.gdse.dto.DeliveryDTO;
 import lk.ijse.gdse.dto.ManageDTO;
-import lk.ijse.gdse.dto.tm.DeliveryTM;
 import lk.ijse.gdse.entity.Delivery;
 
 import java.sql.SQLException;
@@ -13,26 +13,26 @@ import java.util.List;
 
 public class DeliveryBOImpl implements DeliveryBO {
 
-    private final DeliveryDAO deliveryDAO = (DeliveryDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.DELIVERY);
+     DeliveryDAO deliveryDAO = (DeliveryDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.DELIVERY);
 
     @Override
-    public List<DeliveryTM> getAllDelivery() throws SQLException, ClassNotFoundException {
-        List<Delivery> allData = deliveryDAO.getAllDelivery();
+    public List<DeliveryDTO> getAllDelivery() throws SQLException, ClassNotFoundException {
+        ArrayList<DeliveryDTO> allData = deliveryDAO.getAllDelivery();
 
-        List<DeliveryTM> deliveryTMList = new ArrayList<>();
+        List<DeliveryDTO> deliveryDTOList = new ArrayList<>();
 
-        for (Delivery delivery : allData) {
-            DeliveryTM deliveryTM = new DeliveryTM(
-                    delivery.getDelivery_id(),
-                    delivery.getOrder_id(),
-                    delivery.getDelivery_address(),
-                    delivery.getDelivery_date(),
-                    delivery.getDelivery_status(),
-                    delivery.getEmployee_id()
+        for (DeliveryDTO deliveryDTO : allData) {
+            deliveryDTO = new DeliveryDTO(
+                    deliveryDTO.getDelivery_id(),
+                    deliveryDTO.getOrder_id(),
+                    deliveryDTO.getDelivery_address(),
+                    deliveryDTO.getDelivery_date(),
+                    deliveryDTO.getDelivery_status(),
+                    deliveryDTO.getEmployee_id()
             );
-            deliveryTMList.add(deliveryTM);
+            deliveryDTOList.add(deliveryDTO);
         }
-        return deliveryTMList;
+        return deliveryDTOList;
     }
 
     @Override
@@ -43,5 +43,38 @@ public class DeliveryBOImpl implements DeliveryBO {
     @Override
     public boolean saveManage(ManageDTO manageDTO) {
         return false;
+    }
+
+    @Override
+    public boolean saveDelivery(DeliveryDTO deliveryDTO) throws SQLException, ClassNotFoundException {
+        Delivery delivery = new Delivery();
+        delivery.setDelivery_id(deliveryDTO.getDelivery_id());
+        delivery.setOrder_id(deliveryDTO.getOrder_id());
+        delivery.setDelivery_address(deliveryDTO.getDelivery_address());
+        delivery.setDelivery_date(deliveryDTO.getDelivery_date());
+        delivery.setDelivery_status(deliveryDTO.getDelivery_status());
+        delivery.setEmployee_id(deliveryDTO.getEmployee_id());
+
+        return deliveryDAO.save(delivery);
+
+    }
+
+    @Override
+    public boolean updateDelivery(DeliveryDTO deliveryDTO) throws SQLException, ClassNotFoundException {
+        Delivery delivery = new Delivery();
+        delivery.setDelivery_id(deliveryDTO.getDelivery_id());
+        delivery.setOrder_id(deliveryDTO.getOrder_id());
+        delivery.setDelivery_address(deliveryDTO.getDelivery_address());
+        delivery.setDelivery_date(deliveryDTO.getDelivery_date());
+        delivery.setDelivery_status(deliveryDTO.getDelivery_status());
+        delivery.setEmployee_id(deliveryDTO.getEmployee_id());
+
+        return deliveryDAO.update(delivery);
+
+    }
+
+    @Override
+    public boolean deleteDelivery(int deliveryId) throws SQLException, ClassNotFoundException {
+        return deliveryDAO.delete(String.valueOf(deliveryId));
     }
 }

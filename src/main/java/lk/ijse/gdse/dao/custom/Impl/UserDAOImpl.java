@@ -70,7 +70,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public int generateNewId() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT user_id FROM user ORDER BY user_id DESC LIMIT 1");
 
         if (rst.next()) {

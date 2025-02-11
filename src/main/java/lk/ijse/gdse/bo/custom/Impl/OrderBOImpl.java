@@ -45,8 +45,18 @@ public class OrderBOImpl implements OrderBO {
         order.setTotal_price(orderDTO.getTotal_price());
         order.setCustomer_id(orderDTO.getCustomer_id());
 
-        return orderDAO.save((Customer) order);
+        return orderDAO.save((Order) order);
     }
 
+    @Override
+    public boolean saveOrder(OrderDTO order) {
+        return false;
     }
+
+    @Override
+    public String getNextOrderId() {
+        return "";
+    }
+
+}
 

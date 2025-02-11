@@ -53,7 +53,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public int generateNewId() throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("SELECT max(employee_id) from employee");
     }
 

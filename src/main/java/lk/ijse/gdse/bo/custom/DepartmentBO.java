@@ -16,5 +16,5 @@ public interface DepartmentBO extends SuperBO {
 
     ArrayList<DepartmentDTO> getAllDepartments() throws SQLException, ClassNotFoundException;
 
-    String getNextDepartmentId() throws SQLException, ClassNotFoundException;
+    int getNextDepartmentId() throws SQLException, ClassNotFoundException;
 }

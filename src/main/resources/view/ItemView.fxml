@@ -30,7 +30,7 @@
       </TableView>
       <ImageView fx:id="imageItem" fitHeight="80.0" fitWidth="159.0" layoutX="747.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../lk/ijse/gdse/pizzahubsystem/images/pizza-hut-new6371.jpg" />
+            <Image url="@../pizzahubsystem/images/pizza-hut-new6371.jpg" />
          </image>
       </ImageView>
       <VBox layoutX="51.0" layoutY="55.0" prefHeight="200.0" prefWidth="677.0">

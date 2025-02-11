@@ -51,7 +51,7 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public int generateNewId() throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("SELECT MAX(item_id) FROM item");
     }
 

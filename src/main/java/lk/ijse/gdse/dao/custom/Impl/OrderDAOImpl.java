@@ -58,7 +58,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public int generateNewId() throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("SELECT max(order_id) from orders");
     }
 

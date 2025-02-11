@@ -51,15 +51,15 @@ public class InventoryDAOImpl implements InventoryDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public int generateNewId() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT inventory_id FROM inventory ORDER BY inventory_id DESC LIMIT 1");
 
         if (rst.next()) {
             String lastId = rst.getString(1);
             int newId = Integer.parseInt(lastId) + 1;
-            return String.format("%04d", newId);
+            return Integer.parseInt(String.format("%04d", newId));
         }
-        return "0001";
+        return Integer.parseInt("0001");
     }
 
     @Override

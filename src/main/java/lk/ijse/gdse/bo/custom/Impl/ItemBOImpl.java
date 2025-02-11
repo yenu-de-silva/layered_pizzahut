@@ -49,14 +49,14 @@ public class ItemBOImpl implements ItemBO {
 
         List<ItemDTO> itemTMList = new ArrayList<>();
 
-        for (Item item : allData) {
-            ItemDTO iten = new ItemDTO(
-                    item.getItem_id(),
-                    item.getName(),
-                    item.getQuantity(),
-                    item.getPrice()
+        for (Item itemDTO : allData) {
+            ItemDTO item = new ItemDTO(
+                    itemDTO.getItem_id(),
+                    itemDTO.getName(),
+                    itemDTO.getQuantity(),
+                    itemDTO.getPrice()
             );
-            itemTMList.add(iten);
+            itemTMList.add(item);
         }
         return itemTMList;
     }

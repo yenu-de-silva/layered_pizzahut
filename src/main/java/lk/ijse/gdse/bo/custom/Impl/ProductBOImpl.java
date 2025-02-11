@@ -66,7 +66,7 @@ public class ProductBOImpl implements ProductBO {
 
 
 
-    public String getNextDepartmentId() throws SQLException, ClassNotFoundException {
+    public int getNextDepartmentId() throws SQLException, ClassNotFoundException {
         return productDAO.generateNewId();
     }
 

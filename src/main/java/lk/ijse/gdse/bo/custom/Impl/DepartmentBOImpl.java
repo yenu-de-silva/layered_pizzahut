@@ -2,14 +2,8 @@ package lk.ijse.gdse.bo.custom.Impl;
 
 import lk.ijse.gdse.bo.custom.DepartmentBO;
 import lk.ijse.gdse.dao.DAOFactory;
-import lk.ijse.gdse.dao.SQLUtil;
-import lk.ijse.gdse.dao.custom.CustomerDAO;
 import lk.ijse.gdse.dao.custom.DepartmentDAO;
 import lk.ijse.gdse.dto.DepartmentDTO;
-import lk.ijse.gdse.dto.tm.CustomerTM;
-import lk.ijse.gdse.dto.tm.DeliveryTM;
-import lk.ijse.gdse.dto.tm.DepartmentTM;
-import lk.ijse.gdse.entity.Customer;
 import lk.ijse.gdse.entity.Department;
 
 import java.sql.SQLException;
@@ -71,7 +65,7 @@ public class DepartmentBOImpl implements DepartmentBO {
     }
 
     @Override
-    public String getNextDepartmentId() throws SQLException, ClassNotFoundException {
+    public int getNextDepartmentId() throws SQLException, ClassNotFoundException {
         return departmentDAO.generateNewId();
     }
 }

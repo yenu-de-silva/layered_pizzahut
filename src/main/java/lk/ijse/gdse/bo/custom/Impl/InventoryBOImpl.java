@@ -4,9 +4,6 @@ import lk.ijse.gdse.bo.custom.InventoryBO;
 import lk.ijse.gdse.dao.DAOFactory;
 import lk.ijse.gdse.dao.custom.InventoryDAO;
 import lk.ijse.gdse.dto.InventoryDTO;
-import lk.ijse.gdse.dto.tm.CustomerTM;
-import lk.ijse.gdse.dto.tm.InventoryTM;
-import lk.ijse.gdse.entity.Customer;
 import lk.ijse.gdse.entity.Inventory;
 
 import java.sql.SQLException;
@@ -38,7 +35,7 @@ public class InventoryBOImpl implements InventoryBO {
     }
 
     @Override
-    public String getNextInventoryId() throws SQLException, ClassNotFoundException {
+    public int getNextInventoryId() throws SQLException, ClassNotFoundException {
         return inventoryDAO.generateNewId();
     }
 

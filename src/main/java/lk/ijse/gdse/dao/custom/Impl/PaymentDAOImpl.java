@@ -33,8 +33,8 @@ public class PaymentDAOImpl implements PaymentDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
-        return "";
+    public int generateNewId() throws SQLException, ClassNotFoundException {
+        return Integer.parseInt("1");
     }
 
     @Override

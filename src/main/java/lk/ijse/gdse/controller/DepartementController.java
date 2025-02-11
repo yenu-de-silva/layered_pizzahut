@@ -105,8 +105,8 @@ public class DepartementController implements Initializable {
     }
 
     private void loadNextDepartmentId() throws SQLException, ClassNotFoundException {
-        String nextDepartmentId = departmentBO.getNextDepartmentId();
-        departmentIdField.setText(nextDepartmentId);
+        int nextDepartmentId = departmentBO.getNextDepartmentId();
+        departmentIdField.setText(String.valueOf(nextDepartmentId));
     }
 
     private void resetButtonsAndFields() {

@@ -36,15 +36,15 @@ public class DepartmentDAOImpl implements DepartmentDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public int generateNewId() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT department_id FROM department ORDER BY department_id DESC LIMIT 1");
 
         if (rst.next()) {
             String lastId = rst.getString(1);
             int newIdIndex = Integer.parseInt(lastId) + 1;
-            return String.valueOf(newIdIndex);
+            return Integer.parseInt(String.valueOf(newIdIndex));
         }
-        return "1";    }
+        return Integer.parseInt("1");    }
 
     @Override
     public Department search(String id) throws SQLException, ClassNotFoundException {

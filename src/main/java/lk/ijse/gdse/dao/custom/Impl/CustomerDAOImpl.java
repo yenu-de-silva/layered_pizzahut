@@ -50,7 +50,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public int generateNewId() throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("select customer_id from customer order by customer_id desc limit 1");
     }
 

@@ -229,8 +229,8 @@ public class SupplierController {
     @FXML
     public void addOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         clearForm();
-        String newSupplierId = supplierBO.getNextSupplierId();
-        txtSupplierId.setText(newSupplierId);
+        int newSupplierId = supplierBO.getNextSupplierId();
+        txtSupplierId.setText(String.valueOf(newSupplierId));
     }
 
     @FXML

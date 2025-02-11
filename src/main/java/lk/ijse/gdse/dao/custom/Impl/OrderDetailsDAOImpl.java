@@ -2,7 +2,7 @@ package lk.ijse.gdse.dao.custom.Impl;
 
 import lk.ijse.gdse.dao.SQLUtil;
 import lk.ijse.gdse.dao.custom.OrderDetailsDAO;
-import lk.ijse.gdse.entity.Employee;
+import lk.ijse.gdse.dto.OrderDetailsDTO;
 import lk.ijse.gdse.entity.OrderDetails;
 
 import java.sql.ResultSet;
@@ -51,12 +51,32 @@ public class OrderDetailsDAOImpl implements OrderDetailsDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public int generateNewId() throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("SELECT max(order_id) from order_details");
     }
 
     @Override
     public OrderDetails search(String id) throws SQLException, ClassNotFoundException {
         return null;
+    }
+
+    @Override
+    public ArrayList<OrderDetailsDTO> getAllOrderDetails() {
+        return null;
+    }
+
+    @Override
+    public boolean saveOrderDetails(OrderDetailsDTO orderDetailsDTO) {
+        return false;
+    }
+
+    @Override
+    public boolean updateOrderDetails(OrderDetailsDTO orderDetailsDTO) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteOrderDetails(String orderDetailId) {
+        return false;
     }
 }

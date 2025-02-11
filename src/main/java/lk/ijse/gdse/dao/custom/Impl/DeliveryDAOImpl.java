@@ -4,7 +4,6 @@ import lk.ijse.gdse.dao.SQLUtil;
 import lk.ijse.gdse.dao.custom.DeliveryDAO;
 import lk.ijse.gdse.dto.DeliveryDTO;
 import lk.ijse.gdse.entity.Delivery;
-import lk.ijse.gdse.entity.Department;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,7 +39,7 @@ public class DeliveryDAOImpl implements DeliveryDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public int generateNewId() throws SQLException, ClassNotFoundException {
         ResultSet rst =SQLUtil.execute("SELECT payment_id FROM payment ORDER BY payment_id DESC LIMIT 1");
 
         if (rst.next()) {
@@ -48,9 +47,9 @@ public class DeliveryDAOImpl implements DeliveryDAO {
             String substring = lastId.substring(1);
             int i = Integer.parseInt(substring);
             int newIdIndex = i + 1;
-            return String.format("P%03d", newIdIndex);
+            return Integer.parseInt(String.format("P%03d", newIdIndex));
         }
-        return "P001";
+        return Integer.parseInt("P001");
     }
 
     @Override
@@ -59,7 +58,7 @@ public class DeliveryDAOImpl implements DeliveryDAO {
     }
 
     @Override
-    public List<Delivery> getAllDelivery() throws SQLException, ClassNotFoundException {
+    public ArrayList<DeliveryDTO> getAllDelivery() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM payment");
 
         ArrayList<DeliveryDTO> deliveryDTOS = new ArrayList<>();

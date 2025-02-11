@@ -2,7 +2,6 @@ package lk.ijse.gdse.dao.custom.Impl;
 
 import lk.ijse.gdse.dao.SQLUtil;
 import lk.ijse.gdse.dao.custom.ManageDAO;
-import lk.ijse.gdse.dao.custom.ManageDAO;
 import lk.ijse.gdse.entity.Manage;
 
 import java.sql.SQLException;
@@ -35,8 +34,8 @@ public class ManageDAOImpl implements ManageDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
-        return "";
+    public int generateNewId() throws SQLException, ClassNotFoundException {
+        return Integer.parseInt("1");
     }
 
     @Override
