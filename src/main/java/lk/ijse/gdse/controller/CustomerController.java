@@ -222,23 +222,17 @@ public class CustomerController {
     }
 
     public void initialize() throws SQLException, ClassNotFoundException {
-        initialize(null, null);
+        setCellValue();
         loadTableData();
 
     }
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    private void setCellValue() {
         colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colAdress.setCellValueFactory(new PropertyValueFactory<>("address"));
-/*
-        try {
-            refreshPage();
-        } catch (Exception e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Fail to load customer id").show();
-        }*/
     }
 
     private void refreshPage() throws SQLException, ClassNotFoundException {

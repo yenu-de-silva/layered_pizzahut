@@ -11,5 +11,4 @@ public interface OrderDAO extends CrudDAO<Order> {
 
     List<Order> getAll() throws SQLException, ClassNotFoundException;
 
-    boolean save(Customer customer) throws SQLException, ClassNotFoundException;
 }

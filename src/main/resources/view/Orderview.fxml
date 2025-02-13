@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #ff6666;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.OrderController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #ff6666;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.OrderController">
    <children>
       <VBox layoutX="-1.0" prefHeight="600.0" prefWidth="800.0">
          <children>
@@ -60,6 +60,7 @@
                                           <Font name="Calibri" size="14.0" />
                                        </font>
                                     </Label>
+                                    <DatePicker fx:id="datetxt" />
                                     <Label fx:id="orderDate" layoutX="10.0" layoutY="15.0" prefWidth="150.0" text="2099-01-01" textFill="#f46430">
                                        <font>
                                           <Font name="Calibri" size="14.0" />
@@ -81,17 +82,7 @@
                                     <TextField fx:id="txtcustomerId" />
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT">
-                                 <children>
-                                    <Label prefWidth="150.0" text="Customer name" textFill="#f46430" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="Calibri" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="txtcustomerId1" />
-                                 </children>
-                              </HBox>
-                              <DatePicker fx:id="datetxt" />
+                              <HBox alignment="CENTER_LEFT" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="10.0" />

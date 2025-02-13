@@ -16,16 +16,13 @@ public class DepartmentBOImpl implements DepartmentBO {
 
     @Override
     public boolean save(DepartmentDTO departmentDTO) throws SQLException, ClassNotFoundException {
-        Department department = new Department();
-        department.getDepartment_id();
-        department.setDepartment_name(departmentDTO.getDepartment_name());
-        department.setManager_name(departmentDTO.getManager_name());
-        department.setNumber_of_employees(departmentDTO.getNumber_of_employees());
-        department.setDescription(departmentDTO.getDescription());
-
-        return departmentDAO.save(department);
-
-
+        return departmentDAO.save(new Department(
+                departmentDTO.getDepartment_id(),
+                departmentDTO.getDepartment_name(),
+                departmentDTO.getManager_name(),
+                departmentDTO.getNumber_of_employees(),
+                departmentDTO.getDescription()
+        ));
     }
 
     @Override

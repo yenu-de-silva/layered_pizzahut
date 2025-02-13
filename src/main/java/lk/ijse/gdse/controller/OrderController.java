@@ -18,7 +18,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class OrderController implements Initializable {
+public class OrderController{
 
     private final OrderBO orderBO = (OrderBO) BOFactory.getInstance().getBO(BOFactory.BOType.ORDER);
     public Label orderDate;
@@ -50,29 +50,6 @@ public class OrderController implements Initializable {
     @FXML
     private Label lblOrderId;
 
-    @FXML
-    private TextField txtCustomerId;
-
-    @FXML
-    private TextField txtTotalPrice;
-
-    @FXML
-    private TextField txtStatus;
-
-    @FXML
-    private DatePicker dpOrderDate;
-
-    @FXML
-    private TableView<OrderTM> tblOrder;
-
-    @FXML
-    private TableColumn<OrderTM, String> colOrderId;
-
-    @FXML
-    private TableColumn<OrderTM, LocalDate> colOrderDate;
-
-    @FXML
-    private TableColumn<OrderTM, String> colCustomerId;
 
     @FXML
     private TableColumn<OrderTM, Double> colTotal;
@@ -81,18 +58,15 @@ public class OrderController implements Initializable {
     private TableColumn<OrderTM, String> colStatus;
 
     @FXML
-    private Button btnPlaceOrder, btnReset;
-
-    @FXML
     void btnPlaceOrderOnAction(ActionEvent event) throws ClassNotFoundException {
         try {
-            String orderId = lblOrderId.getText();
-            String customerId = txtCustomerId.getText();
-            LocalDate orderDate = dpOrderDate.getValue();
-            double totalPrice = Double.parseDouble(txtTotalPrice.getText());
-            String status = txtStatus.getText();
+            int orderId = Integer.parseInt(lblOrderId.getText());
+            String customerId = txtcustomerId.getText();
+            LocalDate orderDate = datetxt.getValue();
+            double totalPrice = Double.parseDouble(txttotalprice.getText());
+            String status = txtcustomerId2.getText();
 
-            if (orderId.isEmpty() || customerId.isEmpty() || orderDate == null || status.isEmpty()) {
+            if ( customerId.isEmpty() || orderDate == null || status.isEmpty()) {
                 showAlert("Validation Error", "Please fill in all fields correctly.", Alert.AlertType.WARNING);
                 return;
             }
@@ -120,41 +94,25 @@ public class OrderController implements Initializable {
         resetForm();
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        colorderId.setCellValueFactory(new PropertyValueFactory<>("order_id"));
-        colorderDate.setCellValueFactory(new PropertyValueFactory<>("order_date"));
-        colcustomerId.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
-        colTotal.setCellValueFactory(new PropertyValueFactory<>("total_price"));
-        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-
-        try {
-            loadOrders();
-            generateOrderId();
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-            showAlert("Error", "Failed to load orders.", Alert.AlertType.ERROR);
-        }
-    }
 
     private void resetForm() {
         lblOrderId.setText("");
-        txtCustomerId.clear();
-        dpOrderDate.setValue(null);
-        txtTotalPrice.clear();
-        txtStatus.clear();
+        txtcustomerId.clear();
+        datetxt.setValue(null);
+        txttotalprice.clear();
+        txtcustomerId2.clear();
     }
 
     private void loadOrders() throws SQLException, ClassNotFoundException {
         ObservableList<OrderTM> orderTMS = FXCollections.observableArrayList();
         List<OrderTM> sList = orderBO.getAllOrders();
         orderTMS.addAll(sList);
-        tblOrder.setItems(orderTMS);
+        tblorder.setItems(orderTMS);
     }
 
-    private void generateOrderId() {
-        String nextOrderId = orderBO.getNextOrderId();
-        lblOrderId.setText(nextOrderId);
+    private void generateOrderId() throws SQLException, ClassNotFoundException {
+        int nextOrderId = orderBO.getNextOrderId();
+        lblOrderId.setText(String.valueOf(nextOrderId));
     }
 
     private void showAlert(String title, String message, Alert.AlertType alertType) {
@@ -163,5 +121,19 @@ public class OrderController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+    public void initialize() throws SQLException, ClassNotFoundException {
+        generateOrderId();
+        loadOrders();
+        setCellValue();
+    }
+
+    private void setCellValue() {
+        colorderId.setCellValueFactory(new PropertyValueFactory<>("order_id"));
+        colorderDate.setCellValueFactory(new PropertyValueFactory<>("order_date"));
+        colcustomerId.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
+        colTotal.setCellValueFactory(new PropertyValueFactory<>("total_price"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+
     }
 }

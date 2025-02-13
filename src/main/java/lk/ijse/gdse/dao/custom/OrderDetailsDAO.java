@@ -9,11 +9,4 @@ import java.util.ArrayList;
 
 public interface OrderDetailsDAO extends CrudDAO<OrderDetails> {
 
-    ArrayList<OrderDetailsDTO> getAllOrderDetails();
-
-    boolean saveOrderDetails(OrderDetailsDTO orderDetailsDTO);
-
-    boolean updateOrderDetails(OrderDetailsDTO orderDetailsDTO);
-
-    boolean deleteOrderDetails(String orderDetailId);
 }

@@ -6,23 +6,44 @@ import lk.ijse.gdse.entity.Department;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DepartmentDAOImpl implements DepartmentDAO {
 
     @Override
     public List<Department> getAll() throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("SELECT * FROM department");
+        ResultSet rst = SQLUtil.execute("SELECT * FROM department");
+        ArrayList<Department> departmentDTOS = new ArrayList<>();
+
+        while (rst.next()) {
+            Department departmentDTO = new Department(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getInt(4),
+                    rst.getString(5)
+            );
+            departmentDTOS.add(departmentDTO);
+        }
+        return departmentDTOS;
     }
 
     @Override
     public boolean save(Department dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("INSERT INTO department (department_id, department_name, manager_name, number_of_employees, description) VALUES (?, ?, ?, ?, ?)");
+        return SQLUtil.execute("INSERT INTO department (department_id, department_name, manager_name, number_of_employees, description) VALUES (?, ?, ?, ?, ?)",dto.getDepartment_id(),dto.getDepartment_name(),dto.getManager_name(),dto.getNumber_of_employees(),dto.getDescription());
     }
 
     @Override
     public boolean update(Department dto) throws SQLException, ClassNotFoundException {
-        return false;
+        return SQLUtil.execute("UPDATE Department \n" +
+                "SET \n" +
+                "    department_name = ?, \n" +
+                "    manager_name = ?, \n" +
+                "    number_of_employees = ?, \n" +
+                "    description = ? \n" +
+                "WHERE \n" +
+                "    department_id = ?;\n",dto.getDepartment_name(),dto.getManager_name(),dto.getNumber_of_employees(),dto.getDescription(),dto.getDepartment_id());
     }
 
     @Override

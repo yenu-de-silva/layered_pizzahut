@@ -43,21 +43,6 @@ public class EmployeeController {
     private Button btn_add, btn_edit, btn_delete, btn_clear;
 
 
-    @FXML
-    public void initialize(Object o, Object object) throws ClassNotFoundException {
-        colEmpId.setCellValueFactory(new PropertyValueFactory<>("employee_id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colPosition.setCellValueFactory(new PropertyValueFactory<>("position"));
-        colDeptId.setCellValueFactory(new PropertyValueFactory<>("department_id"));
-        colHireDate.setCellValueFactory(new PropertyValueFactory<>("hire_date"));
-
-        try {
-            loadTableData();
-        } catch (SQLException e) {
-            showAlert(Alert.AlertType.ERROR, "Error", "Failed to load employees: " + e.getMessage());
-        }
-    }
-
     private void loadTableData() throws SQLException, ClassNotFoundException {
         List<EmployeeDTO> employees = employeeBO.getAllEmployees();
         ObservableList<EmployeeTM> employeeTMS = FXCollections.observableArrayList();
@@ -176,8 +161,17 @@ public class EmployeeController {
     }
 
     public void initialize() throws SQLException, ClassNotFoundException {
-        initialize(null, null);
+        setCellValue();
         loadTableData();
+
+    }
+
+    private void setCellValue() {
+        colEmpId.setCellValueFactory(new PropertyValueFactory<>("employee_id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colPosition.setCellValueFactory(new PropertyValueFactory<>("position"));
+        colDeptId.setCellValueFactory(new PropertyValueFactory<>("department_id"));
+        colHireDate.setCellValueFactory(new PropertyValueFactory<>("hire_date"));
 
     }
 

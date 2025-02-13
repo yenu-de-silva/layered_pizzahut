@@ -23,7 +23,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-public class DepartementController implements Initializable {
+public class DepartementController{
 
     DepartmentBO departmentBO= (DepartmentBO) BOFactory.getInstance().getBO(BOFactory.BOType.DEPARTMENT);
 
@@ -54,21 +54,13 @@ public class DepartementController implements Initializable {
     private static final Pattern EMPLOYEE_COUNT_PATTERN = Pattern.compile("^\\d+$");
     private static final Pattern DESCRIPTION_PATTERN = Pattern.compile("^[\\w\\s,.-]{5,100}$");
 
-
-    public DepartementController() throws IOException {
-    }
-
-
-
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void setCellValue() {
         deptIdColumn.setCellValueFactory(new PropertyValueFactory<>("department_id"));
         deptNameColumn.setCellValueFactory(new PropertyValueFactory<>("department_name"));
         managerNameColumn.setCellValueFactory(new PropertyValueFactory<>("manager_name"));
         employeeCountColumn.setCellValueFactory(new PropertyValueFactory<>("number_of_employees"));
         deptdescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
     }
-
-
 //    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DepartmentView.fxml"));
 //    Parent root = loader.load();
 
@@ -77,6 +69,7 @@ public class DepartementController implements Initializable {
         //initialize(null, null);
         loadTableData();
         refreshPage();
+        setCellValue();
 
     }
 
@@ -126,10 +119,6 @@ public class DepartementController implements Initializable {
 
 
     private boolean validateAllFields() {
-        if (validateDepartmentId()) {
-            showAlert("Validation Error", "Invalid Department ID format.");
-            return false;
-        }
         if (validateDepartmentName()) {
             showAlert("Validation Error", "Invalid Department Name format.");
             return false;
@@ -149,10 +138,6 @@ public class DepartementController implements Initializable {
         return true;
     }
 
-
-    private boolean validateDepartmentId() {
-        return !ID_PATTERN.matcher(departmentIdField.getText()).matches();
-    }
 
     private boolean validateDepartmentName() {
 
@@ -218,7 +203,6 @@ public class DepartementController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
         Optional<ButtonType> optionalButtonType = alert.showAndWait();
 
-        if (optionalButtonType.isPresent() && optionalButtonType.get() == ButtonType.YES) {
 
             boolean isDeleted = departmentBO.deleteCustomer(departmentIdFieldText);
             if (isDeleted) {
@@ -227,7 +211,7 @@ public class DepartementController implements Initializable {
             } else {
                 new Alert(Alert.AlertType.ERROR, "Fail to delete customer...!").show();
             }
-        }
+
 
     }
 
@@ -252,12 +236,12 @@ public class DepartementController implements Initializable {
     }
 
     public void handledepartmentId(ActionEvent actionEvent) {
-        if (validateDepartmentId()) {
+       /* if (validateDepartmentId()) {
             showAlert("Validation Error", "Invalid Department ID format.");
             departmentIdField.requestFocus();
         } else {
             departmentNameField.requestFocus();
-        }
+        }*/
     }
 
     public void handleDepartmentName(ActionEvent actionEvent) {

@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 
 public class Order {
-    private String order_id;
+    private int order_id;
     private String order_date;
     private String status;
     private String total_price;

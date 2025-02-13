@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderDetailsDAOImpl implements OrderDetailsDAO {
+public class OrderDetailsDAOImpl implements OrderDetailsDAO  {
     @Override
     public List<OrderDetails> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT * FROM orderdetails");
@@ -32,12 +32,12 @@ public class OrderDetailsDAOImpl implements OrderDetailsDAO {
 
     @Override
     public boolean save(OrderDetails dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("insert into order_details(orderdetail_id , order_id, order_date, customer_id, product_id, quantity, total_price) values (?,?,?,?,?,?)", dto.getOrderDetail_id(),dto.getOrder_id(),dto.getProduct_id(),dto.getQuantity(),dto.getPrice());
+        return SQLUtil.execute("insert into orderdetails(order_details_id , order_id, product_id, quantity, price) values (?,?,?,?,?)", dto.getOrderDetail_id(),dto.getOrder_id(),dto.getProduct_id(),dto.getQuantity(),dto.getPrice());
     }
 
     @Override
     public boolean update(OrderDetails dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("update order_details set order_id=?, product_id=?, quantity=?, price=? where order_id=?");
+        return SQLUtil.execute("update orderdetails set order_id=?, product_id=?, quantity=?, price=? where order_details_id=?",dto.getOrder_id(),dto.getProduct_id(),dto.getQuantity(),dto.getPrice(),dto.getOrderDetail_id());
     }
 
     @Override
@@ -47,12 +47,18 @@ public class OrderDetailsDAOImpl implements OrderDetailsDAO {
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("delete from order_details where order_id=?");
+        return SQLUtil.execute("delete from orderdetails where order_details_id=?",id);
     }
 
     @Override
     public int generateNewId() throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("SELECT max(order_id) from order_details");
+       ResultSet rst = SQLUtil.execute("SELECT max(order_details_id) from orderdetails");
+
+        if (rst.next()) {
+            int lastId = rst.getInt(1);
+            return lastId + 1;
+        }
+        return 1;
     }
 
     @Override
@@ -60,23 +66,4 @@ public class OrderDetailsDAOImpl implements OrderDetailsDAO {
         return null;
     }
 
-    @Override
-    public ArrayList<OrderDetailsDTO> getAllOrderDetails() {
-        return null;
-    }
-
-    @Override
-    public boolean saveOrderDetails(OrderDetailsDTO orderDetailsDTO) {
-        return false;
-    }
-
-    @Override
-    public boolean updateOrderDetails(OrderDetailsDTO orderDetailsDTO) {
-        return false;
-    }
-
-    @Override
-    public boolean deleteOrderDetails(String orderDetailId) {
-        return false;
-    }
 }

@@ -113,7 +113,7 @@ CREATE TABLE User (
                       username VARCHAR(50) UNIQUE,
                       password VARCHAR(255),
                       email VARCHAR(100) UNIQUE,
-                      role VARCHAR(50),
+                      role VARCHAR(50)
 
 );
 CREATE TABLE Manage (
