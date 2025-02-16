@@ -3,8 +3,10 @@ package lk.ijse.gdse.bo.custom;
 import lk.ijse.gdse.bo.SuperBO;
 import lk.ijse.gdse.dto.DeliveryDTO;
 import lk.ijse.gdse.dto.ManageDTO;
+import lk.ijse.gdse.entity.Delivery;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface DeliveryBO extends SuperBO {

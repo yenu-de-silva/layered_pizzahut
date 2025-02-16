@@ -33,13 +33,13 @@ public class ProductBOImpl implements ProductBO {
 
 
     @Override
-    public ArrayList<ProductDTO> getAllProducts() throws SQLException, ClassNotFoundException {
+    public List<ProductTM> getAllProducts() throws SQLException, ClassNotFoundException {
         List<Product> allData = productDAO.getAll();
 
-        List<ProductDTO> productDTOList = new ArrayList<>();
+        List<ProductTM> productDTOList = new ArrayList<>();
 
         for (Product product : allData) {
-            ProductDTO productDTO = new ProductDTO(
+            ProductTM productDTO = new ProductTM(
                     product.getProduct_id(),
                     product.getProduct_name(),
                     product.getPrice(),
@@ -49,9 +49,8 @@ public class ProductBOImpl implements ProductBO {
             );
             productDTOList.add(productDTO);
         }
-        return (ArrayList<ProductDTO>) productDTOList;
+        return productDTOList;
     }
-
     public boolean save(ProductDTO productDTO) throws SQLException, ClassNotFoundException {
         Product product = new Product();
         product.setProduct_id(productDTO.getProduct_id());

@@ -13,18 +13,32 @@ import java.util.List;
 public class DeliveryDAOImpl implements DeliveryDAO {
 
     @Override
-    public List<Delivery> getAll() throws SQLException, ClassNotFoundException {
-        return null;
+    public ArrayList<Delivery> getAll() throws SQLException, ClassNotFoundException {
+        ResultSet rst = SQLUtil.execute("SELECT * FROM delivery");
+
+        ArrayList<Delivery> deliveryDTOS = new ArrayList<>();
+
+        while (rst.next()) {
+            Delivery deliveryDTO = new Delivery(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getDate(4),
+                    rst.getString(5),
+                    rst.getString(6));
+            deliveryDTOS.add(deliveryDTO);
+        }
+        return deliveryDTOS;
     }
 
     @Override
     public boolean save(Delivery dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("INSERT INTO payment(payment_id, order_id, payment_method, payment_date, amount, customer_id, order_name, quantity, payment_method1, payment_method2, payment_method3) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        return SQLUtil.execute("INSERT INTO delivery(delivery_id, order_id, delivery_address, delivery_date, delivery_status, employee_id) VALUES (?,?,?,?,?,?)",dto.getDelivery_id(),dto.getOrder_id(),dto.getDelivery_address(),dto.getDelivery_date(),dto.getDelivery_status(),dto.getEmployee_id());
     }
 
     @Override
     public boolean update(Delivery dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("UPDATE payment SET order_id=?, payment_method=?, payment_date=?, amount=?, customer_id=?, quantity=?, payment_method1=?, payment_method2=?, payment_method3=? WHERE payment_id=?");
+        return SQLUtil.execute("UPDATE delivery SET order_id=?, delivery_address=?, delivery_date=?, delivery_status=?, employee_id=? WHERE delivery_id=?",dto.getOrder_id(),dto.getDelivery_address(),dto.getDelivery_date(),dto.getDelivery_status(),dto.getEmployee_id(),dto.getDelivery_id());
     }
 
     @Override
@@ -55,25 +69,5 @@ public class DeliveryDAOImpl implements DeliveryDAO {
     @Override
     public Delivery search(String id) throws SQLException, ClassNotFoundException {
         return null;
-    }
-
-    @Override
-    public ArrayList<DeliveryDTO> getAllDelivery() throws SQLException, ClassNotFoundException {
-        ResultSet rst = SQLUtil.execute("SELECT * FROM payment");
-
-        ArrayList<DeliveryDTO> deliveryDTOS = new ArrayList<>();
-
-        while (rst.next()) {
-            DeliveryDTO deliveryDTO = new DeliveryDTO(
-                 rst.getString(1),
-                    rst.getString(2),
-                    rst.getString(3),
-                    rst.getDate(4),
-            rst.getString(5),
-            rst.getString(6));
-
-            deliveryDTOS.add(deliveryDTO);
-        }
-        return deliveryDTOS;
     }
 }

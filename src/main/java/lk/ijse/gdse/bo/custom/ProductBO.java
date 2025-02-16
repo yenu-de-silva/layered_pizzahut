@@ -2,13 +2,14 @@ package lk.ijse.gdse.bo.custom;
 
 import lk.ijse.gdse.bo.SuperBO;
 import lk.ijse.gdse.dto.ProductDTO;
+import lk.ijse.gdse.dto.tm.ProductTM;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 public interface ProductBO extends SuperBO {
 
-    ArrayList<ProductDTO> getAllProducts() throws SQLException, ClassNotFoundException;
+    List<ProductTM> getAllProducts() throws SQLException, ClassNotFoundException;
 
     boolean save(ProductDTO productDTO) throws SQLException, ClassNotFoundException;
 

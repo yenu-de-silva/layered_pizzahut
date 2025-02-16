@@ -8,5 +8,4 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface DeliveryDAO extends CrudDAO<Delivery> {
-    ArrayList<DeliveryDTO> getAllDelivery() throws SQLException, ClassNotFoundException;
 }

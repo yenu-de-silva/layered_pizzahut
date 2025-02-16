@@ -33,12 +33,12 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public boolean save(Product dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("insert into product(product_id, Product_name, price ,description , category, inventory_count) values (?,?,?,?,?,?)",dto.getProduct_id(),dto.getProduct_name(),dto.getPrice(),dto.getDescription(),dto.getCategory(),dto.getInventory_count(),dto.getInventory_count());
+        return SQLUtil.execute("insert into product(product_id, Product_name, price ,description , category, inventory_count) values (?,?,?,?,?,?)",dto.getProduct_id(),dto.getProduct_name(),dto.getPrice(),dto.getDescription(),dto.getCategory(),dto.getInventory_count());
     }
 
     @Override
     public boolean update(Product dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("insert into product(product_id, Product_name, price ,description , category, inventory_count) values (?,?,?,?,?,?)",dto.getProduct_id(),dto.getProduct_name(),dto.getPrice(),dto.getDescription(),dto.getCategory(),dto.getInventory_count(),dto.getInventory_count());
+        return SQLUtil.execute("update product set Product_name=? , price=? , description=? , category=? , inventory_count=? where product_id=?",dto.getProduct_name(),dto.getPrice(),dto.getDescription(),dto.getCategory(),dto.getInventory_count(),dto.getProduct_id());
     }
 
 

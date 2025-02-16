@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.gdse.bo.BOFactory;
 import lk.ijse.gdse.bo.custom.DeliveryBO;
@@ -16,17 +17,26 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DeliveryController {
+    public TextField deliveryorderIdfeild;
+    public TextField deliverydateField;
+    public TextField deliveryaddressField;
+    public Button btnReset;
+    public Button btnDelete;
+    public Button btnUpdate;
+    public Button btnSave;
+    public TableView <DeliveryDTO> tbldelivery;
+    public TextField deliveryStatusField1;
+    public ImageView imageview;
+    public TextField EmployeeIdField1;
+    public Label titleId;
     DeliveryBO deliveryBO = (DeliveryBO) BOFactory.getInstance().getBO(BOFactory.BOType.DELIVERY);
 
     @FXML
-    private TextField deliveryIdField, deliveryOrderIdField, deliveryAddressField, deliveryDateField, deliveryStatusField, employeeIdField;
-    @FXML
-    private Button btnSave, btnUpdate, btnDelete, btnReset;
-    @FXML
-    private TableView<DeliveryDTO> tblDelivery;
+    private TextField deliveryIdField;
     @FXML
     private TableColumn<DeliveryTM, Integer> colDeliveryId, colOrderId;
     @FXML
@@ -49,24 +59,6 @@ public class DeliveryController {
     }
 
     @FXML
-    void save(ActionEvent event) throws ClassNotFoundException, SQLException {
-        if (validateInputs()) {
-            DeliveryDTO deliveryDTO = getDeliveryDTOFromFields();
-            boolean saved = deliveryBO.saveDelivery(deliveryDTO);
-            showResultAlert(saved, "saved");
-        }
-    }
-
-    @FXML
-    void update(ActionEvent event) throws ClassNotFoundException, SQLException {
-        if (validateInputs()) {
-            DeliveryDTO deliveryDTO = getDeliveryDTOFromFields();
-            boolean updated = deliveryBO.updateDelivery(deliveryDTO);
-            showResultAlert(updated, "updated");
-        }
-    }
-
-    @FXML
     void btnDeleteOnAction(ActionEvent event) throws ClassNotFoundException, SQLException {
         if (!deliveryIdField.getText().isEmpty()) {
             int deliveryId = Integer.parseInt(deliveryIdField.getText());
@@ -80,33 +72,33 @@ public class DeliveryController {
     private void loadDeliveryData() throws SQLException, ClassNotFoundException {
         List<DeliveryDTO> deliveries = deliveryBO.getAllDelivery();
         ObservableList<DeliveryDTO> deliveryList = FXCollections.observableArrayList(deliveries);
-        tblDelivery.setItems(deliveryList);
+        tbldelivery.setItems(deliveryList);
     }
 
     @FXML
     void onClickTable(MouseEvent event) {
-        DeliveryDTO selectedDelivery = tblDelivery.getSelectionModel().getSelectedItem();
+        DeliveryDTO selectedDelivery = tbldelivery.getSelectionModel().getSelectedItem();
         if (selectedDelivery != null) {
             deliveryIdField.setText(String.valueOf(selectedDelivery.getDelivery_id()));
-            deliveryOrderIdField.setText(String.valueOf(selectedDelivery.getOrder_id()));
-            deliveryAddressField.setText(selectedDelivery.getDelivery_address());
-            deliveryDateField.setText(selectedDelivery.getDelivery_date().toString());
-            deliveryStatusField.setText(selectedDelivery.getDelivery_status());
-            employeeIdField.setText(selectedDelivery.getEmployee_id());
+            deliveryorderIdfeild.setText(String.valueOf(selectedDelivery.getOrder_id()));
+            deliveryaddressField.setText(selectedDelivery.getDelivery_address());
+            deliverydateField.setText(selectedDelivery.getDelivery_date().toString());
+            deliveryStatusField1.setText(selectedDelivery.getDelivery_status());
+            EmployeeIdField1.setText(selectedDelivery.getEmployee_id());
         }
     }
 
     private boolean validateInputs() {
         try {
-            if (deliveryIdField.getText().isEmpty() || deliveryOrderIdField.getText().isEmpty() ||
-                    deliveryAddressField.getText().isEmpty() || deliveryDateField.getText().isEmpty() ||
-                    deliveryStatusField.getText().isEmpty() || employeeIdField.getText().isEmpty()) {
+            if (deliveryIdField.getText().isEmpty() || deliveryorderIdfeild.getText().isEmpty() ||
+                    deliveryaddressField.getText().isEmpty() || deliverydateField.getText().isEmpty() ||
+                    deliveryStatusField1.getText().isEmpty() || EmployeeIdField1.getText().isEmpty()) {
                 showAlert("Validation Error", "All fields are required.", Alert.AlertType.ERROR);
                 return false;
             }
             Integer.parseInt(deliveryIdField.getText());
-            Integer.parseInt(deliveryOrderIdField.getText());
-            LocalDate.parse(deliveryDateField.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            Integer.parseInt(deliveryorderIdfeild.getText());
+            LocalDate.parse(deliverydateField.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             return true;
         } catch (NumberFormatException | DateTimeParseException e) {
             showAlert("Validation Error", "Please enter valid data.", Alert.AlertType.ERROR);
@@ -115,14 +107,14 @@ public class DeliveryController {
     }
 
     private DeliveryDTO getDeliveryDTOFromFields() {
-        LocalDate deliveryDate = LocalDate.parse(deliveryDateField.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        LocalDate deliveryDate = LocalDate.parse(deliverydateField.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         return new DeliveryDTO(
                 deliveryIdField.getText(),
-                deliveryOrderIdField.getText(),
-                deliveryAddressField.getText(),
+                deliveryorderIdfeild.getText(),
+                deliveryaddressField.getText(),
                 Date.valueOf(deliveryDate),
-                deliveryStatusField.getText(),
-                employeeIdField.getText()
+                deliveryStatusField1.getText(),
+                EmployeeIdField1.getText()
         );
     }
 
@@ -142,11 +134,11 @@ public class DeliveryController {
 
     private void resetFields() {
         deliveryIdField.clear();
-        deliveryOrderIdField.clear();
-        deliveryAddressField.clear();
-        deliveryDateField.clear();
-        deliveryStatusField.clear();
-        employeeIdField.clear();
+        deliveryorderIdfeild.clear();
+        deliveryaddressField.clear();
+        deliverydateField.clear();
+        deliveryStatusField1.clear();
+        EmployeeIdField1.clear();
     }
 
     private void showAlert(String title, String message, Alert.AlertType alertType) {
@@ -154,5 +146,30 @@ public class DeliveryController {
         alert.setTitle(title);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void btnResetOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
+    }
+
+    public void btnUpdateOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        if (validateInputs()) {
+            DeliveryDTO deliveryDTO = getDeliveryDTOFromFields();
+            boolean updated = deliveryBO.updateDelivery(deliveryDTO);
+            showResultAlert(updated, "updated");
+        }else {
+            resetFields();
+        }
+
+    }
+
+    public void btnSaveOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        if (validateInputs()) {
+            DeliveryDTO deliveryDTO = getDeliveryDTOFromFields();
+            boolean saved = deliveryBO.saveDelivery(deliveryDTO);
+            showResultAlert(saved, "saved");
+        }else {
+            resetFields();
+        }
     }
 }

@@ -15,11 +15,13 @@ import lk.ijse.gdse.bo.custom.CustomerBO;
 import lk.ijse.gdse.bo.custom.ProductBO;
 import lk.ijse.gdse.dao.SQLUtil;
 import lk.ijse.gdse.dto.ProductDTO;
+import lk.ijse.gdse.dto.tm.CustomerTM;
 import lk.ijse.gdse.dto.tm.ProductTM;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductController {
 
@@ -55,29 +57,6 @@ public class ProductController {
 
     @FXML
     private TextField txtInventoryCount;
-
-    @FXML
-    private TableView<ProductTM> productTable;
-
-    @FXML
-    private TableColumn<ProductTM, String> productId;
-
-    @FXML
-    private TableColumn<ProductTM, String> name;
-
-    @FXML
-    private TableColumn<ProductTM, String> description;
-
-    @FXML
-    private TableColumn<ProductTM, String> inventorycount;
-
-    @FXML
-    private TableColumn<ProductTM, String> category;
-
-    @FXML
-    private TableColumn<ProductTM, Double> price;
-
-
 
     public boolean validateProductId(String productId) {
         return productId != null && !productId.trim().isEmpty();
@@ -152,20 +131,15 @@ public class ProductController {
     }
 
     private void loadTableData() throws SQLException, ClassNotFoundException {
-        ArrayList<ProductDTO> producta = productBO.getAllProducts();
-        ObservableList<ProductTM> productTMS = FXCollections.observableArrayList();
-        for (ProductDTO product : producta) {
-            productTMS.add(new ProductTM(
-                    product.getProduct_id(),
-                    product.getProduct_name(),
-                    product.getPrice(),
-                    product.getDescription(),
-                    product.getCategory(),
-                    product.getInventory_count()
+        ObservableList<ProductTM> addProduct = FXCollections.observableArrayList();
 
-            ));
+            List<ProductTM> list = productBO.getAllProducts();
+
+        for (ProductTM productDTO : list) {
+            System.out.println("qwertyu");
+            addProduct.add(productDTO);
         }
-        tblProducts.setItems(productTMS);
+        tblProducts.setItems(addProduct);
     }
     @FXML
     public void saveOnClick(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -180,6 +154,8 @@ public class ProductController {
         boolean issaved = productBO.save(productDTO);
         if (issaved){
             new Alert(AlertType.INFORMATION, "Product saved successfully!").show();
+            refreshTable();
+            loadTableData();
         }else{
             new Alert(AlertType.ERROR, "Failed to save product.").show();
         }
@@ -199,6 +175,8 @@ public class ProductController {
         if (isUpdated) {
 
             new Alert(AlertType.INFORMATION, "Customer updated...!").show();
+            refreshTable();
+            loadTableData();
         }else {
             new Alert(AlertType.ERROR, "Fail to update customer...!").show();
         }
@@ -212,6 +190,8 @@ public class ProductController {
 
         if (isdelete){
             new Alert(AlertType.CONFIRMATION,"product deleted successfully!").show();
+            refreshTable();
+            loadTableData();
         }else {
             new Alert(AlertType.ERROR,"Fail to delete product...!").show();
         }
@@ -243,6 +223,9 @@ public class ProductController {
         }
 
         return "P001";
+    }
+    public void refreshTable() throws SQLException, ClassNotFoundException {
+        loadTableData();
     }
 
 }
