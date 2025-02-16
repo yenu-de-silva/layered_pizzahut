@@ -12,7 +12,7 @@ import java.util.List;
 public class SupplierDAOImpl implements SupplierDAO {
     @Override
     public List<Supplier> getAll() throws SQLException, ClassNotFoundException {
-        ResultSet rst = SQLUtil.execute("SELECT * from inventory");
+        ResultSet rst = SQLUtil.execute("SELECT * from supplier");
 
         ArrayList<Supplier> supplierDTOS = new ArrayList<>();
 
@@ -31,12 +31,12 @@ public class SupplierDAOImpl implements SupplierDAO {
 
     @Override
     public boolean save(Supplier dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("insert into supplier(supplier_id, supplier_name,contact_name, contact_number, address) values (?,?,?,?,?)",dto.getSupplier_id(),dto.getSupplier_name(),dto.getContact_name(),dto.getContact_number(),dto.getAddress());
+        return SQLUtil.execute("insert into supplier(supplier_id, supplier_name,contact_name, phone_number, address) values (?,?,?,?,?)",dto.getSupplier_id(),dto.getSupplier_name(),dto.getContact_name(),dto.getContact_number(),dto.getAddress());
     }
 
     @Override
     public boolean update(Supplier dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("update supplier set Supplier_name=?,contact_name=?, contact_number=?, address=? where supplier_id=?",dto.getSupplier_name(),dto.getContact_name(),dto.getContact_number(),dto.getAddress(),dto.getSupplier_id());
+        return SQLUtil.execute("update supplier set supplier_name=?,contact_name=?, phone_number=?, address=? where supplier_id=?",dto.getSupplier_name(),dto.getContact_name(),dto.getContact_number(),dto.getAddress(),dto.getSupplier_id());
     }
 
     @Override
@@ -46,8 +46,9 @@ public class SupplierDAOImpl implements SupplierDAO {
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("select supplier_id from supplier",id);
+        return SQLUtil.execute("delete from supplier where supplier_id=?",id);
     }
+
 
     @Override
     public int generateNewId() throws SQLException, ClassNotFoundException {

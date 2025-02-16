@@ -14,6 +14,7 @@ import lk.ijse.gdse.dto.tm.SupplierTM;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public class SupplierController {
 
@@ -47,24 +48,16 @@ public class SupplierController {
 
     public Label SupplierName;
 
-    public Label lblUserId;
-
     public Label supplierId;
     public TextField txtsupplierid;
+    public Button btnDelete;
+    public Button btnUpdate;
+    public Button btnSave;
 
-    @FXML
-    private TextField txtSupplierId;
 
     @FXML
     private TextField txtContactName;
 
-
-    @FXML
-    private Button btnSave;
-    @FXML
-    private Button btnUpdate;
-    @FXML
-    private Button btnDelete;
 
     SupplierBO supplierBO= (SupplierBO) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
 
@@ -83,7 +76,7 @@ public class SupplierController {
         colName.setCellValueFactory(new PropertyValueFactory<>("supplier_name"));
         colContactName.setCellValueFactory(new PropertyValueFactory<>("contact_name"));
         colContactNumber.setCellValueFactory(new PropertyValueFactory<>("contact_number"));
-        colAdress.setCellValueFactory(new PropertyValueFactory<>("adress"));
+        colAdress.setCellValueFactory(new PropertyValueFactory<>("address"));
 
 
 
@@ -129,7 +122,7 @@ public class SupplierController {
     public void onTableSelect() {
         SupplierTM selectedSupplier = tblsupplier.getSelectionModel().getSelectedItem();
         if (selectedSupplier != null) {
-            txtSupplierId.setText(selectedSupplier.getSupplier_id());
+            txtsupplierid.setText(selectedSupplier.getSupplier_id());
             txtName.setText(selectedSupplier.getSupplier_name());
             txtContactName.setText(selectedSupplier.getContact_name());
             txtcontactNumber.setText(selectedSupplier.getContact_number());
@@ -201,28 +194,22 @@ public class SupplierController {
     }
 
     @FXML
-    public void deleteOnAction(ActionEvent actionEvent) throws ClassNotFoundException {
-        try {
-            SupplierTM selectedSupplier = tblsupplier.getSelectionModel().getSelectedItem();
+    public void deleteOnAction(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+        String supplierId = txtsupplierid.getText();
 
-            if (selectedSupplier == null) {
-                showError("Error", "Please select a supplier to delete.");
-                return;
-            }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
+        Optional<ButtonType> optionalButtonType = alert.showAndWait();
 
-            String supplierId = selectedSupplier.getSupplier_id();
+        if (optionalButtonType.isPresent() && optionalButtonType.get() == ButtonType.YES) {
 
             boolean isDeleted = supplierBO.deleteSupplier(supplierId);
-
             if (isDeleted) {
-                showInfo("Success", "Supplier deleted successfully!");
+                new Alert(Alert.AlertType.INFORMATION, "Customer deleted...!").show();
                 loadSupplierTableData();
                 clearForm();
             } else {
-                showError("Error", "Failed to delete supplier.");
+                new Alert(Alert.AlertType.ERROR, "Fail to delete customer...!").show();
             }
-        } catch (SQLException e) {
-            showError("Error", "Error deleting supplier: " + e.getMessage());
         }
     }
 
@@ -230,7 +217,7 @@ public class SupplierController {
     public void addOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         clearForm();
         int newSupplierId = supplierBO.getNextSupplierId();
-        txtSupplierId.setText(String.valueOf(newSupplierId));
+        txtsupplierid.setText(String.valueOf(newSupplierId));
     }
 
     @FXML
